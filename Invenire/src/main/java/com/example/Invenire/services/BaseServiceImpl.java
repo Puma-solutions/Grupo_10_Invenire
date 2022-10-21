@@ -1,9 +1,7 @@
 package com.example.Invenire.services;
 
 import com.example.Invenire.entities.Base;
-import com.example.Invenire.entities.Persona; //arreglar
 import com.example.Invenire.repositories.BaseRepository;
-import com.example.Invenire.repositories.PersonaRepository; //arreglar
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,10 +10,10 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class BaseServiceImplementation <E extends Base, ID extends Serializable> implements BaseService<E, ID>{
+public abstract class BaseServiceImpl <E extends Base, ID extends Serializable> implements BaseService<E, ID>{
     protected BaseRepository<E, ID> baseRepository;
 
-    public BaseServiceImplementation(BaseRepository<E, ID> baseRepository){
+    public BaseServiceImpl(BaseRepository<E, ID> baseRepository){
         this.baseRepository = baseRepository;
     }
 

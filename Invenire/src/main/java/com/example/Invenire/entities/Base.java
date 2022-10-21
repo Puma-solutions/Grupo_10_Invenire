@@ -19,4 +19,3 @@ public class Base implements Serializable {
     private Long id ;
 
 }
-}
