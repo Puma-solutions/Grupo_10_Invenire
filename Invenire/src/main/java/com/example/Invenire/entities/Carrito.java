@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.envers.Audited;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="carrito")
@@ -21,4 +21,17 @@ import java.util.Date;
 public class Carrito extends Base{
     @Column(name="fechaCreacion")
     private Date fechaCreacion;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name="fk_usuario")
+    private Usuario usuario;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name="carrito_cursos",joinColumns=@JoinColumn(name="carrito_id"),
+            inverseJoinColumns = @JoinColumn(name="curso_id"))
+    private List<Curso> cursos = new ArrayList<Curso>();
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name="fk_cupon")
+    private CuponDescuento cuponDescuento;
 }

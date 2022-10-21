@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.envers.Audited;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="cursoUsuarioDetalle")
@@ -20,4 +18,8 @@ import javax.persistence.Table;
 public class CursoUsuarioDetalle extends Base{
     @Column(name="visto")
     private boolean visto;
+
+    @OneToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name="fk_detalle")
+    private CursoDetalle detalle;
 }
