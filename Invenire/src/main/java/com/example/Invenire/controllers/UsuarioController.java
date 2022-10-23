@@ -1,2 +1,12 @@
-package com.example.Invenire.controllers;public class UsuarioController {
+package com.example.Invenire.controllers;
+
+import com.example.Invenire.entities.Usuario;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@CrossOrigin(origins = "*")
+@RequestMapping("api/usuario")
+public class UsuarioController extends BaseControllerImpl<Usuario, UsuarioServiceImpl>{
 }
