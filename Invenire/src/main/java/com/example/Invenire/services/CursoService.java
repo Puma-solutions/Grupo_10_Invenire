@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CursoService extends BaseService<Curso,Long>{
 
-
-
+    List<Curso> search(String filtro) throws Exception;
+    Page<Curso> search(String filtro, Pageable pageable) throws Exception;
 
 }

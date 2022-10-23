@@ -32,11 +32,11 @@ public class Curso extends Base{
     @Column(name="urlFotoCurso")
     private String urlFotoCurso;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="fk_categoria")
     private Categoria categoria;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="autor")
     private Usuario autor;
 
