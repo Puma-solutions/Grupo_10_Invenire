@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("api/carrito")
+@RequestMapping("api/v1/carrito")
 public class CarritoController extends BaseControllerImpl<Carrito, CarritoServiceImpl>{
 }
