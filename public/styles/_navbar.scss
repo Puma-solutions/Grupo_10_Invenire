@@ -18,23 +18,23 @@ ion-icon{
         margin-left: 1.5rem;
         font-weight: 700;
         font-size: 2.2rem;
-        color: map-get($colores-primarios, blanco);
+        @include blanco;
     }
     .navbar-collapse{
         margin-left: 2.5rem;
         a{
             font-size: 1.5rem;
             font-weight: 600;
-            color: map-get($colores-primarios, blanco);
+            @include blanco;
         }
         a:hover{
-            color: map-get($colores-primarios, amarillo);
+            @include amarillo;
         }
         .navbar-nav{
             gap: 1.5rem;
         }
         form{
-            background-color: map-get($colores-primarios, blanco);
+            @include b-blanco;
             width: 30rem;
             margin-left: 1rem;
             border-radius: 0.7rem;
@@ -51,14 +51,14 @@ ion-icon{
             }
             .columnblack{
                 width: 0.1rem;
-                background-color: map-get($colores-primarios, negro);
+                @include b-negro;
             }
             .btn{
                 border: none;
-                color: map-get($colores-primarios, negro);
+                @include negro;
             }
             .btn:hover{
-                color: map-get($colores-primarios, negro);
+                @include negro;
                 background-color: transparent;
             }
         }
@@ -69,7 +69,7 @@ ion-icon{
                 transition: all 0.2s;
             }
             ion-icon:hover{
-                color: map-get($colores-primarios, amarillo );
+                @include amarillo;
             }
         }
     }
@@ -82,20 +82,20 @@ ion-icon{
             border: 0.15rem solid  map-get($colores-primarios, blanco);
             padding: 0.5rem 1rem;
             background-color: transparent;
-            color: map-get($colores-primarios, blanco);
+            @include blanco;
             border-radius: 2.5rem;
             min-width: 7rem;
             font-size: 1.4rem;
             font-weight: 500;
             transition: all 0.5s;
             .atractive{
-                color: map-get($colores-primarios, amarillo);
+                @include amarillo;
                 border: 0.15rem solid map-get($colores-primarios, amarillo);
             }
         }
         button:hover{
-            background-color: map-get($colores-primarios, amarillo);
-            color: map-get($colores-primarios, negro);
+            @include b-amarillo;
+            @include negro;
             border: 0.15rem solid map-get($colores-primarios, amarillo);
         }
     }

@@ -10,8 +10,8 @@
   
   body {
     font-family: "Raleway", sans-serif;
-    background-color: map-get($colores-primarios, blanco);
-    color: map-get($colores-primarios, negro);
+    @include b-blanco;
+    @include negro;
     overflow: hidden;
   }
   /*cambio la barra de scroll*/

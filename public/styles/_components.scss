@@ -1,7 +1,7 @@
 .button{
     padding: 0.2rem;
-    background-color: map-get($colores-primarios, amarillo);
-    color: map-get($colores-primarios, negro);
+    @include b-amarillo;
+    @include negro;
     border: none;
     border-radius: 0.2rem;
     @include flex;
@@ -11,7 +11,7 @@
 .card{
     width: 25rem;
     min-height: 20rem;
-    background-color: map-get($colores-primarios, negro);
+    @include b-negro;
     border-radius: 0.5rem;
     box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.21);
 

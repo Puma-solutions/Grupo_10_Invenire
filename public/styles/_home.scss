@@ -1,6 +1,6 @@
 .home{
-    background-color: map-get($colores-primarios, negro);
-    color: map-get($colores-primarios, blanco);
+    @include b-negro;
+    @include blanco;
 }
 
 .homeMain{
