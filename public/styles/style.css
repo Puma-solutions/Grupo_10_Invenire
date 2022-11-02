@@ -95,6 +95,29 @@ h3 {
   justify-content: space-between;
 }
 
+@-webkit-keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-35px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-35px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
 ion-icon {
   font-size: 1.5rem;
 }
@@ -104,6 +127,7 @@ ion-icon {
 }
 
 .navbar {
+  z-index: 1;
   width: 100%;
   position: fixed;
   margin-top: 1rem;
@@ -114,16 +138,17 @@ ion-icon {
   background-color: transparent;
 }
 .navbar .navbar-brand {
-  margin-left: 1.5rem;
+  transform: translateY(-0.2rem);
+  margin-left: 1vw;
   font-weight: 700;
   font-size: 2.2rem;
   color: #FFFFFF;
 }
 .navbar .navbar-collapse {
-  margin-left: 2.5rem;
+  margin-left: 1rem;
 }
 .navbar .navbar-collapse a {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #FFFFFF;
 }
@@ -135,7 +160,8 @@ ion-icon {
 }
 .navbar .navbar-collapse form {
   background-color: #FFFFFF;
-  width: 30rem;
+  min-width: 10rem;
+  width: 20vw;
   margin-left: 1rem;
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem 0.5rem 1rem;
@@ -167,7 +193,7 @@ ion-icon {
   align-items: center;
 }
 .navbar .navbar-collapse .buyIcon ion-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   transition: all 0.2s;
 }
 .navbar .navbar-collapse .buyIcon ion-icon:hover {
@@ -229,30 +255,53 @@ ion-icon {
   align-items: center;
   gap: 5rem;
   z-index: 0;
+  transform: translateY(1.5rem);
 }
 .homeMain .cards .background .violet {
   background: linear-gradient(0deg, #9400D3 0%, #4B0082 100%);
-  width: 11rem;
-  height: 40rem;
+  width: 11vw;
+  max-width: 9.5rem;
+  height: 60vh;
   border-radius: 10rem;
+  box-shadow: rgba(148, 0, 211, 0.2666666667) -0.5rem 0 3rem;
 }
 .homeMain .cards .background .pink {
   background: linear-gradient(90deg, #C84E89 0%, #F15F79 100%);
-  width: 13rem;
-  height: 45rem;
+  width: 13vw;
+  max-width: 11rem;
+  height: 75vh;
   border-radius: 10rem;
+  box-shadow: rgba(200, 78, 137, 0.2862745098) -0.5rem 0 3rem;
 }
 .homeMain .cards .cardsGallery {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 30%;
-  left: 75%;
+  top: 25%;
+  left: 80%;
 }
-.homeMain .cards .pabsolute {
-  margin-left: -20rem;
+.homeMain .cards .cardsGallery img {
   position: relative;
-  top: 30%;
-  transform: skew(0, -15deg);
+  width: 30vw;
+  margin-left: -25vw;
+  filter: drop-shadow(-15px 10px 10px rgba(0, 0, 0, 0.6235294118));
+  -webkit-animation: float 10s ease-in-out infinite;
+          animation: float 10s ease-in-out infinite;
+}
+.homeMain .cards .cardsGallery .f1 {
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+.homeMain .cards .cardsGallery .f2 {
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+.homeMain .cards .cardsGallery .f3 {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+.homeMain .cards .cardsGallery .f4 {
+  -webkit-animation-delay: 4.5s;
+          animation-delay: 4.5s;
 }/*# sourceMappingURL=style.css.map */

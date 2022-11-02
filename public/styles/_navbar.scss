@@ -6,6 +6,7 @@ ion-icon{
     background-color: transparent !important;
 }
 .navbar{
+    z-index: 1;
     width: 100%;
     position: fixed;
     margin-top: 1rem;
@@ -15,15 +16,16 @@ ion-icon{
     }
     font-family: "Raleway", sans-serif;
     .navbar-brand{
-        margin-left: 1.5rem;
+        transform: translateY(-0.2rem);
+        margin-left: 1vw;
         font-weight: 700;
         font-size: 2.2rem;
         @include blanco;
     }
     .navbar-collapse{
-        margin-left: 2.5rem;
+        margin-left: 1rem;
         a{
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
             @include blanco;
         }
@@ -35,7 +37,8 @@ ion-icon{
         }
         form{
             @include b-blanco;
-            width: 30rem;
+            min-width: 10rem;
+            width: 20vw;
             margin-left: 1rem;
             border-radius: 0.7rem;
             padding: 0.5rem 0.5rem 0.5rem 1rem;
@@ -65,7 +68,7 @@ ion-icon{
         .buyIcon{
             @include flex;
             ion-icon{
-                font-size: 3rem;
+                font-size: 2.5rem;
                 transition: all 0.2s;
             }
             ion-icon:hover{

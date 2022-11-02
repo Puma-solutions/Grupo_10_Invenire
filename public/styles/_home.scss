@@ -25,30 +25,48 @@
             @include flex;
             gap: 5rem;
             z-index: 0;
+            transform: translateY(1.5rem);
             .violet{
                 background: linear-gradient(0deg, #9400D3 0%, #4B0082 100%);
-                width: 11rem;
-                height: 40rem;
+                width: 11vw;
+                max-width: 9.5rem;
+                height: 60vh;
                 border-radius: 10rem;
+                box-shadow: #9400d344 -0.5rem 0 3rem;
             }
             .pink{
                 background: linear-gradient(90deg, #C84E89 0%, #F15F79 100%);
-                width: 13rem;
-                height: 45rem;
+                width: 13vw;
+                max-width: 11rem;
+                height: 75vh;
                 border-radius: 10rem;
+                box-shadow: #c84e8949 -0.5rem 0 3rem;
             }
         }
         .cardsGallery{
             @include flex;
             position: absolute;
-            top: 30%;
-            left: 75%;
-        }
-        .pabsolute{
-            margin-left: -20rem;
-            position: relative;
-            top: 30%;
-            transform: skew(0, -15deg);
+            top: 25%;
+            left: 80%;
+            img{
+                position: relative;
+                width: 30vw;
+                margin-left: -25vw;
+                filter: drop-shadow(-15px 10px 10px #0000009f);
+                animation: float 10s ease-in-out infinite;
+            }
+            .f1{
+                animation-delay: 0;
+            }
+            .f2{
+                animation-delay: 1.5s;
+            }
+            .f3{
+                animation-delay: 3s;
+            }
+            .f4{
+                animation-delay: 4.5s;
+            }
         }
     }
 }
