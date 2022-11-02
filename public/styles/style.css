@@ -12,7 +12,6 @@ body {
   font-family: "Raleway", sans-serif;
   background-color: #FFFFFF;
   color: #000000;
-  overflow: hidden;
 }
 
 /*cambio la barra de scroll*/
@@ -42,6 +41,12 @@ h2 {
 h3 {
   font-size: 1.5rem;
   font-weight: 300;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .button {
@@ -95,6 +100,78 @@ h3 {
   justify-content: space-between;
 }
 
+.user-card {
+  padding: 1rem;
+  background-color: #FFFFFF;
+  width: 600px;
+  height: 465px;
+  border-radius: 0;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+.user-card .card-container {
+  position: relative;
+}
+.user-card .card-container .card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-card .card-container .card-title h2 {
+  font-weight: 350;
+  color: #000000;
+}
+.user-card .card-container .card-title input {
+  border: none;
+  margin-right: 20px;
+  background-color: #FFFFFF;
+  color: blue;
+}
+.user-card .card-container .card-item label {
+  color: #000000;
+  width: 50%;
+}
+.user-card .card-container .card-item select {
+  padding: 0.5rem;
+  width: 250px;
+}
+.user-card .card-container .card-item input {
+  outline: none;
+  width: 250px;
+  padding: 0.3rem;
+}
+.user-card .card-container .card-item::after {
+  content: "";
+  margin-top: 1rem;
+  display: block;
+  position: absolute;
+  background-color: #B6B6B6;
+  height: 1px;
+  width: 95%;
+}
+.user-card .card-container .card-item:last-child::after {
+  display: none;
+}
+.user-card .card-container .card-title::after {
+  content: "";
+  margin-top: 3rem;
+  display: block;
+  position: absolute;
+  background-color: #B6B6B6;
+  height: 1px;
+  width: 95%;
+}
+
+/* clase de utilidad */
+.flow * + * {
+  margin-top: var(--flow-spacer, 3em);
+}
+
+.underline {
+  width: 50% !important;
+  transition: width 1s ease-in-out;
+}
+
 ion-icon {
   font-size: 1.5rem;
 }
@@ -108,6 +185,7 @@ ion-icon {
   position: fixed;
   margin-top: 1rem;
   font-family: "Raleway", sans-serif;
+  /* Foto de perfil y nombre navbar */
 }
 .navbar .container-fluid {
   margin: 0;
@@ -199,6 +277,33 @@ ion-icon {
   color: #000000;
   border: 0.15rem solid #FFC300;
 }
+.navbar .profile-user {
+  margin-right: 2rem;
+  display: inline-block;
+  width: 250px;
+}
+.navbar .profile-user .navbar-nav {
+  gap: 2rem;
+}
+.navbar .profile-user a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  clear: left;
+  text-align: right;
+  vertical-align: middle;
+  line-height: 1.5rem;
+}
+.navbar .profile-user a img {
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 3rem;
+  margin-right: 1rem;
+}
 
 .home {
   background-color: #000000;
@@ -255,4 +360,80 @@ ion-icon {
   position: relative;
   top: 30%;
   transform: skew(0, -15deg);
+}
+
+.user {
+  background-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.user-main {
+  background: radial-gradient(38.01% 51.94% at 58.56% 44.95%, #353535 0%, #1B1B1B 100%);
+  background-size: cover;
+  padding-top: 6rem;
+}
+.user-main .principal-info {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.user-main .principal-info img {
+  border-radius: 50%;
+  max-width: 25%;
+  max-height: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.user-main .principal-info .info-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+.user-main .principal-info .info-header input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #B6B6B6 !important;
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 1.7rem;
+  width: 32.5%;
+  transition: width 1s ease-in-out;
+}
+.user-main .principal-info .info-header ion-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.user-main .principal-info .info-header ion-icon:hover {
+  color: #FFC300;
+}
+.user-main .principal-info .user-card {
+  height: auto;
+}
+.user-main .secondary-info {
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+  padding-inline: 2rem;
+  background-color: #FFFFFF;
+}
+.user-main .secondary-info .user-card {
+  width: 30rem;
+}
+.user-main .secondary-info .info-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.user-main .secondary-info .info-container form:nth-child(2) .card-item:after, .user-main .secondary-info .info-container form:nth-child(3) .card-item:after {
+  display: none;
+}
+.user-main .secondary-info .info-container form:nth-child(2) .card-item input, .user-main .secondary-info .info-container form:nth-child(3) .card-item input {
+  border: none;
+  border-bottom: 1px solid #B6B6B6;
+}
+.user-main .secondary-info .info-container form:nth-child(2) .card-item:nth-child(2) label, .user-main .secondary-info .info-container form:nth-child(3) .card-item:nth-child(2) label {
+  background-color: #B6B6B6;
+  width: auto;
+  padding: 0.35rem;
 }/*# sourceMappingURL=style.css.map */

@@ -78,6 +78,7 @@ ion-icon{
         .navbar-nav{
             gap: 2rem;
         }
+
         button{
             border: 0.15rem solid  map-get($colores-primarios, blanco);
             padding: 0.5rem 1rem;
@@ -97,6 +98,35 @@ ion-icon{
             @include b-amarillo;
             @include negro;
             border: 0.15rem solid map-get($colores-primarios, amarillo);
+        }
+    }
+
+    /* Foto de perfil y nombre navbar */
+    .profile-user{
+        margin-right: 2rem;
+        display: inline-block;
+        width: 250px;
+        .navbar-nav{
+            gap: 2rem;
+        }
+        a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            @include blanco;
+            clear: left;
+            text-align: right;
+            vertical-align: middle;
+            line-height: 1.5rem;
+            img{
+                width: 25%;
+                height: 25%;
+                border-radius: 50%;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 3rem;
+                margin-right: 1rem;
+            }
         }
     }
 }

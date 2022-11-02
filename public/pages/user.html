@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!--CSS-->
+  <link rel="stylesheet" href="/public/styles/style.css">
+  <!-- Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <title>Invenire</title>
+</head>
+
+<body class="user">
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">INVENIRE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Tus cursos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tienda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Ayuda</a>
+            </li>
+            <form class="d-flex" role="search">
+              <input class="" type="search" placeholder="Busca tu curso ideal" aria-label="Search">
+              <div class="columnblack"></div>
+              <button class="btn btn-outline-success" type="submit">
+                <ion-icon name="search-outline"></ion-icon>
+              </button>
+            </form>
+            <li class="buyIcon">
+              <ion-icon name="cart"></ion-icon>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="profile-user">
+        <a href="#"><img src="/public/images/el-ultimo-romantico.jpg" alt="Profile user pic">Leo Mattioli</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="user-main">
+    <section class="principal-info | flow" style="--flow-spacer: .5rem">
+      <img src="/public/images/el-ultimo-romantico.jpg" alt="">
+      <form method="post" id="user-info" action="#">
+        <div class="info-header">
+          <input type="text" value="Leo Mattioli" id="nameInput" disabled="true">
+          <ion-icon name="pencil-outline" id="editPencil"></ion-icon>
+        </div>
+        <div class="user-card">
+          <div class="card-container | flow" style="--flow-spacer: 1rem">
+            <div class="card-title mb-0">
+              <h2>Opciones de cuenta</h2>
+              <p><input type="submit" value="Editar"></p>
+            </div>
+            <div class="card-item mt-0">
+              <label for="idiomas">Idioma</label>
+              <select name="idiomas" id="idiomas">
+                <option value="español">Español</option>
+                <option value="ingles">Ingles</option>
+                <option value="frances">Frances</option>
+                <option value="italiano">Italiano</option>
+              </select>
+            </div>
+            <div class="card-item">
+              <label for="nacionalidad">Nacionalidad</label>
+              <input name="nacionalidad" id="nacionalidad"></input>
+            </div>
+            <div class="card-item">
+              <label for="dni">Documento Nacional</label>
+              <input type="number" name="dni" id="dni"></input>
+            </div>
+            <div class="card-item">
+              <label for="fecha-nacimiento">Fecha de nacimiento</label>
+              <input type="date" name="fecha-nacimiento" id="fecha-nacimiento"></input>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="secondary-info">
+      <div class="info-container">
+        <form method="post" id="user-info" action="#">
+          <div class="user-card" data-aos="fade-right">
+            <div class="card-container | flow" style="--flow-spacer: 1rem">
+              <div class="card-title mb-0">
+                <h2>Dirección</h2>
+                <p><input type="submit" value="Editar"></p>
+              </div>
+              <div class="card-item mt-0">
+                <label for="pais">País</label>
+                <select name="pais" id="pais">
+                  <option value="argentina">Argentina</option>
+                  <option value="estados-unidos">Estados Unidos</option>
+                  <option value="francia">Francia</option>
+                  <option value="italia">Italia</option>
+                </select>
+              </div>
+              <div class="card-item">
+                <label for="provincia">Provincia</label>
+                <input type="number" name="provincia" id="provincia"></input>
+              </div>
+              <div class="card-item">
+                <label for="codigo-postal">Código Postal</label>
+                <input type="number" name="codigo-postal" id="codigo-postal"></input>
+              </div>
+              <div class="card-item">
+                <label for="calle">Calle</label>
+                <input type="number" name="calle" id="calle"></input>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <form method="post" id="user-info" action="#">
+          <div class="user-card" data-aos="fade-up">
+            <div class="card-container | flow" style="--flow-spacer: 1rem">
+              <div class="card-title mb-0">
+                <h2>Correo electrónico</h2>
+                <p><input type="submit" value="Editar"></p>
+              </div>
+              <div class="card-item mt-1">
+                <label for="principal-email">Principal</label><br>
+                <input type="email" name="principal-email" id="principal-email" placeholder="example@gmail.com"></input>
+              </div>
+              <div class="card-item">
+                <div class="card-item mt-0">
+                  <label for="secondary-email">Secundario</label>
+                  <input type="email" name="secondary-email" id="secondary-email"
+                    placeholder="secondary@gmail.com"></input>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <form method="post" id="user-info" action="#">
+          <div class="user-card" data-aos="fade-left">
+            <div class="card-container | flow" style="--flow-spacer: 1rem">
+              <div class="card-title mb-0">
+                <h2>Número de teléfono</h2>
+                <p><input type="submit" value="Editar"></p>
+              </div>
+              <div class="card-item mt-1">
+                <label for="principal-cellphone">Principal</label><br>
+                <input type="tel" name="principal-cellphone" id="principal-cellphone" placeholder="02615597764"></input>
+              </div>
+              <div class="card-item">
+                <div class="card-item mt-0">
+                  <label for="secondary-cellphone">Secundario</label>
+                  <input type="tel" name="secondary-cellphone" id="secondary-cellphone"
+                    placeholder="02615597764"></input>
+                </div>
+              </div>
+            </div>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="./js/navbar.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script>
+    const nameInput = document.getElementById('nameInput');
+
+    document.getElementById('editPencil').addEventListener('click', (e) => {
+      if(nameInput.disabled){
+        nameInput.disabled = false;
+        nameInput.classList.toggle("underline")
+      } else {
+        nameInput.disabled = true;
+        nameInput.classList.toggle("underline");
+      }
+    });
+  </script>
+</body>
+
+</html>
