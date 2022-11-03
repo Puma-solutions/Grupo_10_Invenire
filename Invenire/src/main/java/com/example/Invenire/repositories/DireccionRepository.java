@@ -1,6 +1,6 @@
 package com.example.Invenire.repositories;
 
-import com.example.Invenire.entities.Direccion;
+import com.example.Invenire.entities.entities.Direccion;
 import org.springframework.stereotype.Repository;
 
 @Repository

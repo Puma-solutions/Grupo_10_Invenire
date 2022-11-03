@@ -1,7 +1,7 @@
 package com.example.Invenire.services;
 
 
-import com.example.Invenire.entities.CursoUsuario;
+import com.example.Invenire.entities.entities.CursoUsuario;
 import com.example.Invenire.repositories.BaseRepository;
 import com.example.Invenire.repositories.CursoUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

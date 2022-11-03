@@ -1,6 +1,6 @@
 package com.example.Invenire.services;
 
-import com.example.Invenire.entities.Curso;
+import com.example.Invenire.entities.entities.Curso;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

@@ -1,4 +1,4 @@
-package com.example.Invenire.entities;
+package com.example.Invenire.entities.entities;
 
 import lombok.*;
 

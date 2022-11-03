@@ -1,6 +1,6 @@
 package com.example.Invenire.controllers;
 
-import com.example.Invenire.entities.Direccion;
+import com.example.Invenire.entities.entities.Direccion;
 import com.example.Invenire.services.DireccionServiceImpl;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

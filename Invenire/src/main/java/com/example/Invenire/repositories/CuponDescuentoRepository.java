@@ -1,6 +1,6 @@
 package com.example.Invenire.repositories;
 
-import com.example.Invenire.entities.CuponDescuento;
+import com.example.Invenire.entities.entities.CuponDescuento;
 import org.springframework.stereotype.Repository;
 
 @Repository
