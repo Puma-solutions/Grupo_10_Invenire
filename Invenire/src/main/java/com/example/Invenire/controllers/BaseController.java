@@ -1,12 +1,11 @@
 package com.example.Invenire.controllers;
 
-import com.example.Invenire.entities.Base;
+import com.example.Invenire.entities.entities.Base;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.persistence.Entity;
 import java.io.Serializable;
 
 public interface BaseController <E extends Base, ID extends Serializable> {

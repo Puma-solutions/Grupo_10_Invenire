@@ -1,7 +1,7 @@
 package com.example.Invenire.services;
 
 
-import com.example.Invenire.entities.Carrito;
+import com.example.Invenire.entities.entities.Carrito;
 import com.example.Invenire.repositories.BaseRepository;
 import com.example.Invenire.repositories.CarritoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

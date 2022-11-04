@@ -1,6 +1,6 @@
 package com.example.Invenire.controllers;
 
-import com.example.Invenire.entities.Base;
+import com.example.Invenire.entities.entities.Base;
 import com.example.Invenire.services.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

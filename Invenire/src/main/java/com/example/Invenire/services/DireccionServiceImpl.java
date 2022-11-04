@@ -1,7 +1,7 @@
 package com.example.Invenire.services;
 
 
-import com.example.Invenire.entities.Direccion;
+import com.example.Invenire.entities.entities.Direccion;
 import com.example.Invenire.repositories.BaseRepository;
 import com.example.Invenire.repositories.DireccionRepository;
 import org.springframework.beans.factory.annotation.Autowired;

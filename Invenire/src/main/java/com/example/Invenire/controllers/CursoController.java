@@ -1,6 +1,6 @@
 package com.example.Invenire.controllers;
 
-import com.example.Invenire.entities.Curso;
+import com.example.Invenire.entities.entities.Curso;
 import com.example.Invenire.services.CursoServiceImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

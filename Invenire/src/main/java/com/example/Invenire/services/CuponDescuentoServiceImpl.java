@@ -1,6 +1,6 @@
 package com.example.Invenire.services;
 
-import com.example.Invenire.entities.CuponDescuento;
+import com.example.Invenire.entities.entities.CuponDescuento;
 import com.example.Invenire.repositories.BaseRepository;
 import com.example.Invenire.repositories.CuponDescuentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
