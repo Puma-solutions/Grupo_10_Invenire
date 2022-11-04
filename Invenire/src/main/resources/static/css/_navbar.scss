@@ -1,0 +1,102 @@
+ion-icon{
+    font-size: 1.5rem;
+}
+
+.bg-light{
+    background-color: transparent !important;
+}
+.navbar{
+    width: 100%;
+    position: fixed;
+    margin-top: 1rem;
+    .container-fluid{
+        margin: 0;
+        background-color: transparent;
+    }
+    font-family: "Raleway", sans-serif;
+    .navbar-brand{
+        margin-left: 1.5rem;
+        font-weight: 700;
+        font-size: 2.2rem;
+        color: map-get($colores-primarios, blanco);
+    }
+    .navbar-collapse{
+        margin-left: 2.5rem;
+        a{
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: map-get($colores-primarios, blanco);
+        }
+        a:hover{
+            color: map-get($colores-primarios, amarillo);
+        }
+        .navbar-nav{
+            gap: 1.5rem;
+        }
+        form{
+            background-color: map-get($colores-primarios, blanco);
+            width: 30rem;
+            margin-left: 1rem;
+            border-radius: 0.7rem;
+            padding: 0.5rem 0.5rem 0.5rem 1rem;
+            input{
+                
+                width: 95%;
+                border: none;
+                background-color: transparent;
+            }
+            input:focus{
+                border: none;
+                outline: none;
+            }
+            .columnblack{
+                width: 0.1rem;
+                background-color: map-get($colores-primarios, negro);
+            }
+            .btn{
+                border: none;
+                color: map-get($colores-primarios, negro);
+            }
+            .btn:hover{
+                color: map-get($colores-primarios, negro);
+                background-color: transparent;
+            }
+        }
+        .buyIcon{
+            @include flex;
+            ion-icon{
+                font-size: 3rem;
+                transition: all 0.2s;
+            }
+            ion-icon:hover{
+                color: map-get($colores-primarios, amarillo );
+            }
+        }
+    }
+    .profile{
+        margin-right: 2rem;
+        .navbar-nav{
+            gap: 2rem;
+        }
+        button{
+            border: 0.15rem solid  map-get($colores-primarios, blanco);
+            padding: 0.5rem 1rem;
+            background-color: transparent;
+            color: map-get($colores-primarios, blanco);
+            border-radius: 2.5rem;
+            min-width: 7rem;
+            font-size: 1.4rem;
+            font-weight: 500;
+            transition: all 0.5s;
+            .atractive{
+                color: map-get($colores-primarios, amarillo);
+                border: 0.15rem solid map-get($colores-primarios, amarillo);
+            }
+        }
+        button:hover{
+            background-color: map-get($colores-primarios, amarillo);
+            color: map-get($colores-primarios, negro);
+            border: 0.15rem solid map-get($colores-primarios, amarillo);
+        }
+    }
+}

@@ -2,8 +2,6 @@ package com.example.Invenire.controllers;
 
 import com.example.Invenire.entities.dtos.UsuarioRegistroDTO;
 import com.example.Invenire.services.UsuarioDetailsService;
-import com.example.Invenire.services.UsuarioDetailsServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -48,15 +46,6 @@ public class InicioController {
         return "redirect:/register?exito";
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<?> search(@RequestParam String filtro){
-        try{
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.loadUserByUsername(filtro));
-        }
-        catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\"" + e.getMessage() +" \"}"));
-        }
-    }
 
 
 }
