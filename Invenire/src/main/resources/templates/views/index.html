@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -45,10 +46,17 @@
               </div>
             </div>
             <div class="profile">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="atractive"><button><a th:href="@{/register}">Registrarse</a></button></li>
-                <li><button><a th:href="@{/register}">Login</a></button></li>
-              </ul>
+              <div sec:authorize="!isAuthenticated()">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="atractive"><button><a th:href="@{/register}">Registrarse</a></button></li>
+                  <li><button><a th:href="@{/login}">Login</a></button></li>
+                </ul>
+              </div>
+              <div sec:authorize="isAuthenticated()">
+                <p>Bienvenido: <span sec:authentication="principal.username"></span></p>
+                <a th:href="@{/editUser}">Editar Perfil</a>
+                <a th:href="@{/logout}">Logout</a>
+              </div>
             </div>
           </nav>
     </header>
