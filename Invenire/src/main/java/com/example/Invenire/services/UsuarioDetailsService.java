@@ -6,4 +6,5 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UsuarioDetailsService extends UserDetailsService {
     Usuario registerUser(UsuarioRegistroDTO registroDTO);
+    Usuario obtenerUsuarioSesion();
 }

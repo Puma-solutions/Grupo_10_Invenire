@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.envers.Audited;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="direccion")
@@ -23,9 +21,11 @@ public class Direccion extends Base{
     @Column(name="ciudad")
     private String ciudad;
     @Column(name="codPostal")
-    private int codPostal;
+    private String codPostal;
     @Column(name="localidad")
     private String localidad;
-    @Column(name="pais")
-    private String pais;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="fk_pais")
+    private Pais pais;
 }

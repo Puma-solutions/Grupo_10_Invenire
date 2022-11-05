@@ -2,6 +2,9 @@ package com.example.Invenire.entities.dtos;
 
 import lombok.Data;
 
+import java.util.Date;
+
+
 @Data
 public class UsuarioRegistroDTO {
     private String nombre;
@@ -10,4 +13,5 @@ public class UsuarioRegistroDTO {
     private String username;
     private String password;
     private String celular;
+    private String fechaNacimiento;
 }
