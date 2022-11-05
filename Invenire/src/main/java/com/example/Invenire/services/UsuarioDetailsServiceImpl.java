@@ -66,9 +66,14 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService {
         Authentication auth = SecurityContextHolder
                 .getContext()
                 .getAuthentication();
-        UserDetails userDetail = (UserDetails) auth.getPrincipal();
-        Usuario usuario = usuarioRepositorio.findByUsername(userDetail.getUsername());
-        return usuario;
+        if(auth.getPrincipal() != "anonymousUser") {
+            System.out.println(auth.getPrincipal());
+            UserDetails userDetail = (UserDetails) auth.getPrincipal();
+            Usuario usuario = usuarioRepositorio.findByUsername(userDetail.getUsername());
+            return usuario;
+        }
+        return null;
+
     }
 
     @Override

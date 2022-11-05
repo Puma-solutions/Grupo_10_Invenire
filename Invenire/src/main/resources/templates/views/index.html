@@ -34,8 +34,8 @@
                   <li class="nav-item">
                     <a class="nav-link">Ayuda</a>
                   </li>
-                  <form class="d-flex" role="search">
-                    <input class="" type="search" placeholder="Busca tu curso ideal" aria-label="Search">
+                  <form class="d-flex" th:action="@{/cursos/search}" method="post" th:object="${searchDTO}">
+                    <input class="" type="search" placeholder="Busca tu curso ideal" aria-label="Search" th:field="${searchDTO.filtro}">
                     <div class="columnblack"></div>
                     <button class="btn btn-outline-success" type="submit"><ion-icon name="search-outline"></ion-icon></button>
                   </form>

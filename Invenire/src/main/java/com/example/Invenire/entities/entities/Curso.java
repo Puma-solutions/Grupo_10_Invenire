@@ -31,6 +31,8 @@ public class Curso extends Base{
     private double precio;
     @Column(name="urlFotoCurso")
     private String urlFotoCurso;
+    @Column(name="descripcion")
+    private String descripcion;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="fk_categoria")

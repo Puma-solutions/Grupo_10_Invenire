@@ -22,4 +22,6 @@ public interface CursoRepository extends BaseRepository<Curso,Long>{
             countQuery = "SELECT count (*) from curso"
     )
     Page<Curso> search(@Param("filtro") String filtro, Pageable pageable);
+
+    List<Curso> findByNombreContainsIgnoreCaseAndFechaBajaIsNull(String nombre);
 }
