@@ -64,8 +64,7 @@
         <div class="headlineRegister">
           <h1>Login</h1>
         </div>
-      </main>
-      <form
+        <form
         th:action="@{/login}"
         method="post"
         th:object="${user}"
@@ -100,7 +99,7 @@
 
         <div class="formLine">
           <div class="refLogin">
-            <button type="submit">Iniciar Sesion</button>
+            <button type="submit" class="button">Iniciar Sesion</button>
             <p>
               ¿Aún no tenes cuenta?
               <a href="/register">Click aquí para registrarte.</a>
@@ -108,6 +107,7 @@
           </div>
         </div>
       </form>
+      </main>
     </body>
   </html>
 </html>

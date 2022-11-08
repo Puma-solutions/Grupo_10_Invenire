@@ -210,7 +210,6 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
   gap: 1.5rem;
 }
 .navbar .rightNavbar .noProfile button {

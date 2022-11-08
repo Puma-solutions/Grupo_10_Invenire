@@ -82,7 +82,6 @@
     .rightNavbar{
         .noProfile{
             @include flex;
-            display: none;
             gap: 1.5rem;
             button{
                 border: 0.15rem solid white;
