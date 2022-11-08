@@ -1,34 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<html xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h1>SOY EL LOGIN</h1>
-<form th:action="@{/login}" method="post" th:object="${user}">
-    <div th:if="${param.error}">
-        <p>Usuario o contraseña incorrecta</p>
-    </div>
-    <div th:if="${param.logout}">
-        <p>Ha cerrado sesión exitosamente</p>
-    </div>
-    <div>
-        <label for="username">Nombre de Usuario:</label>
-        <input type="text" id="username" name="username" th:field="*{username}">
-    </div>
-    <div>
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" th:field="*{password}">
-    </div>
-    <div>
-        <p>¿Aún no tenes cuenta? <a href="/register">Click aquí para registrarte.</a></p>
-    </div>
-    <button type="submit">Iniciar Sesion</button>
-</form>
-</body>
+  <html xmlns:th="https://www.thymeleaf.org">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+      <!--CSS-->
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="../static/css/style.css"
+        th:href="@{/css/style.css}"
+      />
+      <title>Invenire</title>
+    </head>
+    <body class="home">
+      <header>
+        <nav class="navbar" id="noBgNav">
+          <div class="leftNavBar">
+            <a href="" class="brand">
+              <!--Icono-->
+              <p id="brandText">INVENIRE</p>
+            </a>
+            <ul class="pages">
+              <li><a href="">Tus cursos</a></li>
+              <li><a href="">Tienda</a></li>
+              <li><a href="">Ayuda</a></li>
+            </ul>
+            <form action="" class="searchBar">
+              <input type="text" placeholder="Busca tu curso ideal!" />
+              <div class="columnblack"></div>
+              <button><ion-icon name="search-outline"></ion-icon></button>
+            </form>
+            <a href="" class="buyIcon"><ion-icon name="cart"></ion-icon></a>
+          </div>
+          <div class="rightNavbar">
+            <div class="noProfile" sec:authorize="!isAuthenticated()">
+              <button class="atractive">
+                <a href="" th:href="@{/register}">Register</a>
+              </button>
+              <button><a href="" th:href="@{/login}">Login</a></button>
+            </div>
+            <div class="profile" sec:authorize="isAuthenticated()">
+              <img
+                src="https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdGFncmFtJTIwcHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+                alt=""
+              />
+              <h3 sec:authentication="principal.username"></h3>
+              <a th:href="@{/logout}"
+                ><ion-icon name="exit-outline"></ion-icon
+              ></a>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main class="register">
+        <div class="headlineRegister">
+          <h1>Login</h1>
+        </div>
+      </main>
+      <form
+        th:action="@{/login}"
+        method="post"
+        th:object="${user}"
+        class="formLoginRegister"
+      >
+        <div class="formLine">
+          <div class="inputFormLine">
+            <label for="username">Nombre de Usuario:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              th:field="*{username}"
+            />
+          </div>
+          <div class="inputFormLine">
+            <label for="password">Contraseña:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              th:field="*{password}"
+            />
+          </div>
+        </div>
+        <div th:if="${param.error}">
+          <p>Usuario o contraseña incorrecta</p>
+        </div>
+        <div th:if="${param.logout}">
+          <p>Ha cerrado sesión exitosamente</p>
+        </div>
+
+        <div class="formLine">
+          <div class="refLogin">
+            <button type="submit">Iniciar Sesion</button>
+            <p>
+              ¿Aún no tenes cuenta?
+              <a href="/register">Click aquí para registrarte.</a>
+            </p>
+          </div>
+        </div>
+      </form>
+    </body>
+  </html>
 </html>

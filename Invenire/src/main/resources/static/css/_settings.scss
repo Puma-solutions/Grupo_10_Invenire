@@ -1,44 +1,44 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    font-family: "Raleway", sans-serif;
-    background-color: map-get($colores-primarios, blanco);
-    color: map-get($colores-primarios, negro);
-    overflow: hidden;
-  }
-  /*cambio la barra de scroll*/
-  body::-webkit-scrollbar {
-    width: 5px;
-  }
-  
-  body::-webkit-scrollbar-track {
-    background: rgba(41, 41, 41, 0.158);
-  }
-  
-  body::-webkit-scrollbar-thumb {
-    background-color: rgb(85, 0, 102);
-    border-radius: 20px;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  @include b-blanco;
+  @include negro;
+  overflow: hidden;
+}
+/*cambio la barra de scroll*/
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(41, 41, 41, 0.158);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(85, 0, 102);
+  border-radius: 20px;
+}
 
 h1{
-    font-size: map-get($espacios, 5);
-    font-weight: 500;
+  font-size: map-get($espacios, 5);
+  font-weight: 500;
 }
 
 h2{
-    font-size: map-get($espacios, 4);
-    font-weight: 400;
+  font-size: map-get($espacios, 4);
+  font-weight: 400;
 }
 
 h3{
-    font-size: map-get($espacios, 3);
-    font-weight: 300;
+  font-size: map-get($espacios, 3);
+  font-weight: 300;
 }

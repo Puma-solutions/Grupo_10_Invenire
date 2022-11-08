@@ -1,0 +1,89 @@
+.register{
+    @include flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    .formLoginRegister{
+        width: 50rem;
+        background-color: rgb(17, 17, 17);
+        @include blanco;
+        padding: 3rem;
+        border-radius: 2.5rem;
+        @include flex;
+        flex-direction: column;
+        gap: 0rem;
+        .formLine{
+            @include flex;
+            gap: 2rem;
+        }
+        .inputFormLine{
+            @include flex;
+            flex-direction: column;
+            input{
+                background-color: transparent;
+                border: 0.15rem solid map-get($colores-secundarios, violeta-oscuro);
+                padding: 1rem;
+                @include blanco;
+                border-radius: 1rem;
+                width: 12rem;
+                transition: all 0.5s;
+            }
+            label{
+                padding: 0.5rem 0.7rem;
+                background-color: rgb(17, 17, 17);
+                transform: translateY(2.5rem);
+                transition: all 0.5s;
+                border-radius: 1rem;
+            }
+            input:focus, input:hover{
+                border: 0.15rem solid map-get($colores-secundarios, violeta-claro);
+                outline: none;
+            }
+        }
+        .inputFormLine:hover{
+            label{
+                transform: translateY(1rem);
+                padding: 0.5rem;
+            }
+        }
+        .refLogin{
+            margin-top: 2rem;
+            @include flex;
+            flex-direction: column;
+            gap: 1rem;
+            a{
+                @include amarillo;
+            }
+            button{
+                @include flex;
+                gap: 1rem;
+                padding: 1rem;
+                width: 22rem;
+                ion-icon{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+
+.success{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    @include flex;
+    gap: 1rem;
+    border: 0.15rem solid green;
+    padding: 1rem;
+    border-radius: 2rem;
+    ion-icon{
+        font-size: 2rem;
+        transform: rotate(+360deg);
+        transition: all 0.5s;
+    }
+}
+
+.success::before{
+    ion-icon{
+        transform: rotate(0);
+    }
+}
