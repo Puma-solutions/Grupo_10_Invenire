@@ -87,3 +87,18 @@
         transform: rotate(0);
     }
 }
+
+.error{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    @include flex;
+    gap: 1rem;
+    border: 0.15rem solid red;
+    padding: 1rem;
+    border-radius: 2rem;
+    ion-icon{
+        font-size: 2rem;
+        transform: rotate(+360deg);
+        transition: all 0.5s;
+    }
+}
