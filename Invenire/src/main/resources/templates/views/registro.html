@@ -1,44 +1,129 @@
-<!doctype html>
-<html lang="en">
-<html xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registro</title>
-</head>
-<body>
-<h1>REGISTRO</h1>
-<div th:if="${param.exito}">
-    <p>Registrado exitosamente!</p>
-</div>
-<form th:action="@{/register}" method="post" th:object="${user}">
-    <div>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" th:field="*{nombre}">
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" th:field="*{apellido}">
-        <label for="fechaNacimiento">Fecha Nacimiento:</label>
-        <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}">
-    </div>
-    <div>
-        <label for="username">Nombre de Usuario:</label>
-        <input type="text" id="username" th:field="*{username}">
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" th:field="*{password}">
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="text" id="email" th:field="*{email}">
-        <label for="celular">Celular:</label>
-        <input type="text" id="celular" th:field="*{celular}">
-    </div>
-    <div>
-        <p>¿Ya tenes cuenta? <a href="/login">Click aquí para iniciar sesion.</a></p>
-    </div>
-    <button type="submit">Registrarse</button>
-
-</form>
-</body>
+<!DOCTYPE html>
+<html lang="es">
+  <html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <html xmlns:th="https://www.thymeleaf.org">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+        <!--CSS-->
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="../static/css/style.css"
+          th:href="@{/css/style.css}"
+        />
+        <title>Invenire</title>
+      </head>
+      <body class="home">
+        <header th:insert="components/nav.html :: header"></header>
+        <main class="register">
+          <div class="headlineRegister">
+            <h1>Registro</h1>
+          </div>
+          <form
+            th:action="@{/register}"
+            method="post"
+            th:object="${user}"
+            class="formLoginRegister"
+          >
+            <div class="formLine">
+              <div id="nombre" class="inputFormLine">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" th:field="*{nombre}" required />
+              </div>
+              <div id="apellido" class="inputFormLine">
+                <label for="apellido">Apellido</label>
+                <input
+                  type="text"
+                  id="apellido"
+                  th:field="*{apellido}"
+                  required
+                />
+              </div>
+              <div id="fecha" class="inputFormLine">
+                <label for="fechaNacimiento">Fecha Nacimiento</label>
+                <input
+                  type="date"
+                  id="fechaNacimiento"
+                  th:field="*{fechaNacimiento}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="formLine">
+              <div class="inputFormLine">
+                <label for="username">Nombre de Usuario</label>
+                <input
+                  type="text"
+                  id="username"
+                  th:field="*{username}"
+                  required
+                />
+              </div>
+              <div class="inputFormLine">
+                <label for="password">Contraseña</label>
+                <input
+                  type="password"
+                  id="password"
+                  th:field="*{password}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="formLine">
+              <div class="inputFormLine">
+                <label for="email">Email</label>
+                <input type="email" id="email" th:field="*{email}" required />
+              </div>
+              <div class="inputFormLine">
+                <label for="celular">Celular</label>
+                <input
+                  type="number"
+                  id="celular"
+                  th:field="*{celular}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="formLine">
+              <div class="refLogin">
+                <button type="submit" class="button">
+                  Registrarse
+                  <ion-icon name="caret-forward-circle-outline"></ion-icon>
+                </button>
+                <p>
+                  ¿Ya tenes cuenta?
+                  <a href="/login">Click aquí para iniciar sesion.</a>
+                </p>
+              </div>
+            </div>
+          </form>
+          <div th:if="${param.exito}" class="success">
+            <p>Registrado exitosamente!</p>
+            <ion-icon name="checkmark-outline"></ion-icon>
+          </div>
+        </main>
+        <script
+          type="module"
+          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+          nomodule
+          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+        ></script>
+        <script
+          type="text/javascript"
+          src="../../static/js/formValidation.js"
+          th:href="@{/js/formValidation.js}"
+        ></script>
+      </body>
+    </html>
+  </html>
 </html>
