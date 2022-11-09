@@ -32,6 +32,10 @@
             <span> - </span>
             <span th:text="${detalle.nombre}"></span>
             <a th:href="${detalle.getLinkVideo()}">Link</a>
+<!--            <form th:action="@{/cursos/visto/{idCurso}/{idDetalle}/(idCurso=${curso.id},idDetalle=${detalle.id})}" method="post" th:object="${visto}">
+                <input type="checkbox" name="" id="" class="check_visto" onChange="this.form.submit()" th:field="${visto.visto}" th:value="${visto.visto}">
+            </form>-->
+
         </div>
     </div>
 </main>
