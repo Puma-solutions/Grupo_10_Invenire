@@ -1,0 +1,173 @@
+body {
+    background: radial-gradient(38.01% 51.94% at 58.56% 44.95%, #353535 0%, #1B1B1B 100%);
+    background-size: cover;
+}
+
+
+.edit-user {
+    width: 100%;
+    margin-left: 5rem;
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 8rem;
+        padding-bottom: 5rem;
+        padding-inline: 3rem;
+        margin-left: 5%;
+        gap: 7rem;
+       
+
+        .col-1 {
+            flex-basis: 50%;
+            position: relative;
+            
+            h1 {
+                width: 20ch;
+                font-weight: 500;
+                letter-spacing: .6rem;
+            }
+
+            h2{
+                letter-spacing: .3rem;
+            }
+
+            .inputFormLine {
+                width: 100%;
+
+                input,
+                select {
+                    background-color: transparent;
+                    border: 0.15rem solid map-get($colores-secundarios, violeta-oscuro);
+                    padding: .9rem;
+                    @include blanco;
+                    border-radius: 0.5rem;
+                    width: 50%;
+                    transition: all 0.5s;
+                }
+
+                label {
+                    display: inline-block;
+                    width: 30%;
+                    margin-left: 1rem;
+                    background-color: transparent;
+                    transform: translateY(1rem);
+                    padding-block: 0.5rem;
+                    padding-left: 1rem;
+                    transition: all 0.5s;
+                    border-radius: 1rem;
+                    transform: translateY(-5%);
+                }
+
+                input:focus,
+                select:focus {
+                    border: 0.15rem solid map-get($colores-secundarios, violeta-claro);
+                    outline: none;
+                    box-shadow: 0 0 20px map-get($colores-secundarios, violeta-claro);
+                }
+
+                input:hover,
+                select:hover {
+                    border: 0.15rem solid map-get($colores-secundarios, violeta-claro);
+                    outline: none;
+                }
+
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    margin: 0;
+                }
+            }
+        }
+
+        .col-1::after {
+            content: '';
+            width: 10px;
+            height: 100%;
+            background: linear-gradient(map-get($colores-secundarios, violeta-claro), #fb5283);
+            position: absolute;
+            left: -40px;
+            top: 8px;
+        }
+    }
+
+    .col-2 {
+        position: relative;
+        flex-basis: 55%;
+        display: flex;
+        align-items: center;
+
+        .profile-card {
+            padding-bottom: 1rem;
+            text-align: center;
+            max-width: max(300px, 40%);
+            background: linear-gradient(45deg, map-get($colores-secundarios, violeta-oscuro), #fb5283);
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            transition: box-shadow .4s ease-out,
+            transform .4s ease-out;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+
+            .editProfile {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                display: none;
+                z-index: -1;
+                ion-icon{
+                    font-size: 3.5rem;
+                    padding: .5rem;
+                }
+            }
+
+            img {
+                width: 350px;
+                height: 350px;
+                object-fit: cover;
+                object-position: top;
+                aspect-ratio: 1/1;
+                transition: opacity .4s ease-in-out;
+            }
+
+            h2 {
+                padding: 1rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+
+            img:hover {
+                cursor: pointer;
+                opacity: .8;
+                animation: editProfile;
+            }
+        }
+
+        .profile-card:hover{
+            border: 1px solid white;
+            transform: scale(1.03);
+            box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+        }
+
+
+    }
+
+    .button {
+        cursor: pointer;
+        margin-top: 2rem;
+        margin-left: 1rem;
+        transition: background-color .3s ease;
+    }
+
+    .button:hover {
+        background-color: yellow;
+    }
+}
+
+/* Clase de utilidad */
+.flow *+* {
+    margin-top: var(--flow-spacer, 3em);
+}
