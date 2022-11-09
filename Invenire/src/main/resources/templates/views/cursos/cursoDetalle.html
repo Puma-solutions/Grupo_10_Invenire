@@ -14,24 +14,54 @@
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
     <title>Invenire</title>
+    <style>
+    img{width:500px; border-radius:10px}
+    .tarjeta{    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;}
+    .titulo{
+    text-align:center;}
+    .detalle{
+        padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+        margin: 20px;
+        border: 1px solid black;
+    }
+    .detalles{
+     font-size: 30px;
+    text-align: center;}
+    .detalle a {
+    text-decoration:none;
+    color:black;
+    }
+    .numCap{font-weight:bold;}
+
+    </style>
 </head>
-<body class="home">
-<main class="">
-    <div>
+<body>
+<header th:insert = "components/nav.html :: header(idNav='')"></header>
+<main class="" style="padding:150px">
+    <div class="tarjeta">
         <img th:src="${curso.urlFotoCurso}" width="100px"; alt="">
-        <h2 th:text="${curso.nombre}"></h2>
-        <p th:text="${curso.descripcion}"></p>
+        <div class="titulo">
+            <h2 th:text="${curso.nombre}"></h2>
+            <p th:text="${curso.descripcion}"></p>
+            <div class="buy" th:if="${curso.detalles == null}">
+                <p th:text="${curso.precio}">$5.500 (ARS)</p>
+                <button class="button">Comprar</button>
+            </div>
+        </div>
     </div>
-    <div class="buy" th:if="${curso.detalles == null}">
-            <p th:text="${curso.precio}">$5.500 (ARS)</p>
-            <button class="button">Comprar</button>
-    </div>
+
     <div class="detalles" th:if="${curso.detalles != null}">
-        <div th:each="detalle : ${curso.detalles}">
-            <span th:text="${detalle.numCap}"></span>
-            <span> - </span>
-            <span th:text="${detalle.nombre}"></span>
-            <a th:href="${detalle.getLinkVideo()}">Link</a>
+        <div th:each="detalle : ${curso.detalles}" class="detalle">
+            <a th:href="${detalle.getLinkVideo()}" target="_blank">
+                <span th:text="${detalle.numCap}" class="numCap"></span>
+                <span> - </span>
+                <span th:text="${detalle.nombre}" class="nombre"></span>
+            </a>
 <!--            <form th:action="@{/cursos/visto/{idCurso}/{idDetalle}/(idCurso=${curso.id},idDetalle=${detalle.id})}" method="post" th:object="${visto}">
                 <input type="checkbox" name="" id="" class="check_visto" onChange="this.form.submit()" th:field="${visto.visto}" th:value="${visto.visto}">
             </form>-->

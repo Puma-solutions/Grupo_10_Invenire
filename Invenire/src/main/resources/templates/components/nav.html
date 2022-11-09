@@ -1,5 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <header>
-  <nav class="navbar"> <!-- id="noBgNav"-->
+  <nav class="navbar" th:fragment="header(idNav)" th:id="${idNav}"> <!-- id="noBgNav"-->
     <div class="leftNavBar">
       <a href="" class="brand" th:href="@{/}">
         <!--Icono-->
@@ -8,10 +11,10 @@
       <ul class="pages">
         <li><a href="">Tus cursos</a></li>
         <li><a href="">Tienda</a></li>
-        <li><a href="">Ayuda</a></li>
+        <li><a th:href="@{/ayuda}">Ayuda</a></li>
       </ul>
-      <form action="" class="searchBar">
-        <input type="text" placeholder="Busca tu curso ideal!" />
+      <form action="" class="searchBar" th:action="@{/cursos/search}" method="get" >
+        <input type="text" placeholder="Busca tu curso ideal!" id="search" name="search"/>
         <div class="columnblack"></div>
         <button><ion-icon name="search-outline"></ion-icon></button>
       </form>
@@ -35,3 +38,4 @@
     </div>
   </nav>
 </header>
+</html>
