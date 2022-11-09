@@ -13,14 +13,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/cursos.css" th:href="@{/css/cursos.css}">
     <title>Invenire</title>
 </head>
-<body class="home">
-<main class="">
+<body>
+<header th:insert = "components/nav.html :: header(idNav='')"></header>
+<main class="" style="padding:150px;">
     <div th:if="${#lists.size(cursos) >= 1}" class="cards">
-        <div class="cardsGallery" style="top:0;left:0;">
+        <div class="cardsGallery" style="top: 0;display: flex;left:0;gap: 15px;justify-content: space-evenly;align-items: baseline;">
             <div th:each="curso : ${cursos}" class="card">
-                <a th:href="@{/cursos/__${curso.id}__}">
+                <a th:href="@{/cursos/__${curso.id}__}" style="color:white;text-decoration:none;">
                     <div class="headerCard">
                         <img th:src="${curso.urlFotoCurso}" alt="">
                         <p th:text="${curso.nombreAutor}"></p>
@@ -44,7 +46,7 @@
             </div>
         </div>
     </div>
-    <div th:if="${#lists.size(cursos) == 0}">
+    <div th:if="${#lists.size(cursos) == 0}" style="display: flex;justify-content: center;">
         <h2>No se encontraron resultados para tu busqueda.</h2>
     </div>
 </main>

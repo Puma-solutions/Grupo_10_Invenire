@@ -1,10 +1,8 @@
 package com.example.Invenire.controllers;
 
 import com.example.Invenire.entities.dtos.CursoCardDTO;
-import com.example.Invenire.entities.dtos.SearchDTO;
 import com.example.Invenire.entities.dtos.VistoDTO;
 import com.example.Invenire.entities.entities.Curso;
-import com.example.Invenire.entities.entities.Usuario;
 import com.example.Invenire.services.CursoService;
 import com.example.Invenire.services.UsuarioDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +21,9 @@ public class CursoPageController {
         this.servicio = servicio;
     }
 
-    @PostMapping("/search")
-    public String searchCursos(@ModelAttribute("searchDTO") SearchDTO searchDTO, Model modelo){
-        List<CursoCardDTO> cursos = servicio.buscarCursosPorNombreYPorUsuario(searchDTO.getFiltro(),userService.obtenerUsuarioSesion());
+    @GetMapping("/search")
+    public String searchCursos(@RequestParam("search") String search, Model modelo){
+        List<CursoCardDTO> cursos = servicio.buscarCursosPorNombreYPorUsuario(search,userService.obtenerUsuarioSesion());
         modelo.addAttribute("cursos",cursos);
         return "views/cursos/search";
     }
