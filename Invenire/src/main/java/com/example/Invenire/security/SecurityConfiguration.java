@@ -47,7 +47,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/styles/**",
                         "**.css",
                         "/role**," ,
-                                "/role/**").permitAll()
+                                "/role/**",
+                        "/ayuda").permitAll()
                 .antMatchers("/editUser").access("hasRole('ROLE_USER')")
                 .anyRequest().authenticated()
                 .and()

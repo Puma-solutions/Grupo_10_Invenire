@@ -90,5 +90,10 @@ public class InicioController {
     }
 
 
+    @GetMapping("/ayuda")
+    public String mostrarAyuda(Model modelo){
+        return "views/help";
+    }
+
 
 }

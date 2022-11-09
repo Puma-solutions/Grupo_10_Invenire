@@ -24,44 +24,7 @@
         <title>Invenire</title>
       </head>
       <body class="home">
-        <header>
-          <nav class="navbar" id="noBgNav">
-            <div class="leftNavBar">
-              <a href="" class="brand">
-                <!--Icono-->
-                <p id="brandText">INVENIRE</p>
-              </a>
-              <ul class="pages">
-                <li><a href="">Tus cursos</a></li>
-                <li><a href="">Tienda</a></li>
-                <li><a href="">Ayuda</a></li>
-              </ul>
-              <form action="" class="searchBar">
-                <input type="text" placeholder="Busca tu curso ideal!" />
-                <div class="columnblack"></div>
-                <button><ion-icon name="search-outline"></ion-icon></button>
-              </form>
-              <a href="" class="buyIcon"><ion-icon name="cart"></ion-icon></a>
-            </div>
-            <div class="rightNavbar">
-              <div class="noProfile" sec:authorize="!isAuthenticated()">
-                <button class="atractive">
-                  <a href="" th:href="@{/register}">Register</a>
-                </button>
-                <button><a href="" th:href="@{/login}">Login</a></button>
-              </div>
-              <div class="profile" sec:authorize="isAuthenticated()">
-                <img
-                  src="https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdGFncmFtJTIwcHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
-                  alt=""
-                />
-                <h3 sec:authentication="principal.username"></h3>
-                <a th:href="@{/logout}"
-                  ><ion-icon name="exit-outline"></ion-icon
-                ></a>
-              </div>
-            </div>
-          </nav>
+        <header th:insert = "components/nav.html :: header">
         </header>
         <main class="homeMain">
           <div class="text">

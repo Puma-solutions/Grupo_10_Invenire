@@ -1,34 +1,43 @@
 .register{
+    overflow-x: auto;
     @include flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: auto;
+    padding: 6.5rem 0 4rem 0;
     .formLoginRegister{
         width: 50rem;
         background-color: rgb(17, 17, 17);
         @include blanco;
-        padding: 3rem;
+        padding: 0.5rem 5rem 2rem 5rem;
         border-radius: 2.5rem;
         @include flex;
+        align-items: flex-start;
         flex-direction: column;
-        gap: 0rem;
+        gap: 0.5rem;
         .formLine{
             @include flex;
-            gap: 2rem;
+            gap: 0.5rem;
+            flex-direction: column;
+            width: 100%
         }
         .inputFormLine{
             @include flex;
+            align-items: flex-start;
             flex-direction: column;
+            width: 100%;
             input{
                 background-color: transparent;
                 border: 0.15rem solid map-get($colores-secundarios, violeta-oscuro);
                 padding: 1rem;
                 @include blanco;
-                border-radius: 1rem;
-                width: 12rem;
+                border-radius: 0.5rem;
+                width: 100%;
                 transition: all 0.5s;
+                background-color: rgb(22, 22, 22);
             }
             label{
+                margin-left: 1rem;
                 padding: 0.5rem 0.7rem;
                 background-color: rgb(17, 17, 17);
                 transform: translateY(2.5rem);
