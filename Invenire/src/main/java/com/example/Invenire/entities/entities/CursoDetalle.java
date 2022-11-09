@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cursoDetalle")
+@Table(name="cursoDetalle.html")
 @Getter
 @Setter
 @NoArgsConstructor

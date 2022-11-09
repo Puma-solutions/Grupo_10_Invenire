@@ -1,5 +1,6 @@
 package com.example.Invenire.controllers;
 
+import com.example.Invenire.entities.dtos.SearchDTO;
 import com.example.Invenire.entities.dtos.UsuarioEditDTO;
 import com.example.Invenire.entities.dtos.UsuarioRegistroDTO;
 import com.example.Invenire.entities.entities.Pais;
@@ -37,6 +38,8 @@ public class InicioController {
 
     @GetMapping("/")
     public String verIndex(Model modelo) {
+        SearchDTO searchDTO = new SearchDTO();
+        modelo.addAttribute("searchDTO",searchDTO);
         return "views/index";
     }
 
