@@ -354,8 +354,14 @@ h3 {
   height: auto;
   padding: 6.5rem 0 4rem 0;
 }
+.register .headlineRegister h1 {
+  padding: 0.5rem 1.5rem 1rem 1.5rem;
+  border-radius: 1.5rem;
+  transform: translateY(1rem);
+  background-color: rgb(17, 17, 17);
+}
 .register .formLoginRegister {
-  width: 50rem;
+  width: 40rem;
   background-color: rgb(17, 17, 17);
   color: #FFFFFF;
   padding: 0.5rem 5rem 2rem 5rem;
@@ -391,23 +397,29 @@ h3 {
   border-radius: 0.5rem;
   width: 100%;
   transition: all 0.5s;
-  background-color: rgb(22, 22, 22);
 }
 .register .formLoginRegister .inputFormLine label {
   margin-left: 1rem;
-  padding: 0.5rem 0.7rem;
   background-color: rgb(17, 17, 17);
-  transform: translateY(2.5rem);
+  transform: translateY(1rem);
+  padding: 0.5rem 1rem;
   transition: all 0.5s;
   border-radius: 1rem;
 }
-.register .formLoginRegister .inputFormLine input:focus, .register .formLoginRegister .inputFormLine input:hover {
+.register .formLoginRegister .inputFormLine input:focus {
+  border: 0.15rem solid #9400D3;
+  outline: none;
+  box-shadow: 0 0 20px #9400D3;
+}
+.register .formLoginRegister .inputFormLine input:hover {
   border: 0.15rem solid #9400D3;
   outline: none;
 }
-.register .formLoginRegister .inputFormLine:hover label {
-  transform: translateY(1rem);
-  padding: 0.5rem;
+.register .formLoginRegister .inputFormLine input::-webkit-outer-spin-button,
+.register .formLoginRegister .inputFormLine input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 .register .formLoginRegister .refLogin {
   margin-top: 2rem;
