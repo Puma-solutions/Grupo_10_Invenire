@@ -536,4 +536,174 @@ h3 {
 .help .questions .question:hover .headlineQuestion ion-icon {
   transform: rotate(180deg);
   color: #4B0082;
-}/*# sourceMappingURL=style.css.map */
+}
+body {
+  background: radial-gradient(38.01% 51.94% at 58.56% 44.95%, #353535 0%, #1B1B1B 100%);
+  background-size: cover;
+}
+
+.edit-user {
+  width: 100%;
+  padding-bottom: 2rem;
+}
+.edit-user .row {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 9rem;
+  padding-bottom: 1.5rem;
+  padding-inline: 2rem;
+  margin-inline: 5%;
+  gap: 3rem;
+}
+.edit-user .row .col-1, .edit-user .row .col-2 {
+  position: relative;
+  width: 100%;
+}
+.edit-user .row .col-1 h1, .edit-user .row .col-2 h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.6rem;
+}
+.edit-user .row .col-1 h2, .edit-user .row .col-2 h2 {
+  line-height: 3rem;
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+}
+.edit-user .row .col-1 .inputFormLine, .edit-user .row .col-2 .inputFormLine {
+  width: 100%;
+}
+.edit-user .row .col-1 .inputFormLine input,
+.edit-user .row .col-1 .inputFormLine select, .edit-user .row .col-2 .inputFormLine input,
+.edit-user .row .col-2 .inputFormLine select {
+  background-color: transparent;
+  border: 0.15rem solid #4B0082;
+  padding: 0.9rem;
+  color: #FFFFFF;
+  border-radius: 0.5rem;
+  width: 60%;
+  transition: all 0.5s;
+}
+.edit-user .row .col-1 .inputFormLine select option, .edit-user .row .col-2 .inputFormLine select option {
+  color: black;
+}
+.edit-user .row .col-1 .inputFormLine label, .edit-user .row .col-2 .inputFormLine label {
+  display: inline-block;
+  width: 30%;
+  background-color: transparent;
+  transform: translateY(1rem);
+  margin-right: 1rem;
+  padding-block: 0.5rem;
+  transition: all 0.5s;
+  border-radius: 1rem;
+  transform: translateY(-5%);
+}
+.edit-user .row .col-1 .inputFormLine input:focus,
+.edit-user .row .col-1 .inputFormLine select:focus, .edit-user .row .col-2 .inputFormLine input:focus,
+.edit-user .row .col-2 .inputFormLine select:focus {
+  border: 0.15rem solid #9400D3;
+  outline: none;
+  box-shadow: 0 0 20px #9400D3;
+}
+.edit-user .row .col-1 .inputFormLine input:hover,
+.edit-user .row .col-1 .inputFormLine select:hover, .edit-user .row .col-2 .inputFormLine input:hover,
+.edit-user .row .col-2 .inputFormLine select:hover {
+  border: 0.15rem solid #9400D3;
+  outline: none;
+}
+.edit-user .row .col-1 .inputFormLine input::-webkit-outer-spin-button,
+.edit-user .row .col-1 .inputFormLine input::-webkit-inner-spin-button, .edit-user .row .col-2 .inputFormLine input::-webkit-outer-spin-button,
+.edit-user .row .col-2 .inputFormLine input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+.edit-user .row .col-1::after, .edit-user .row .col-2::after {
+  content: "";
+  width: 10px;
+  height: 425px;
+  background: linear-gradient(#9400D3, #fb5283);
+  position: absolute;
+  left: -40px;
+  top: 6px;
+}
+.edit-user .col-3 {
+  align-self: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  min-width: 275px;
+}
+.edit-user .col-3 .profile-card {
+  padding-bottom: 0.5rem;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: linear-gradient(45deg, #4B0082, #fb5283);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: box-shadow 0.4s ease-out, transform 0.4s ease-out;
+  border-radius: 10px;
+  position: relative;
+}
+.edit-user .col-3 .profile-card .editProfile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: -1;
+}
+.edit-user .col-3 .profile-card .editProfile ion-icon {
+  font-size: 3.5rem;
+  padding: 0.5rem;
+}
+.edit-user .col-3 .profile-card img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: top;
+  object-position: top;
+  aspect-ratio: 1/1;
+  transition: opacity 0.4s ease-in-out;
+}
+.edit-user .col-3 .profile-card h2 {
+  font-size: 1.5rem;
+  padding: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.edit-user .col-3 .profile-card img:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.edit-user .col-3 .profile-card:hover {
+  border: 1px solid white;
+  transform: scale(1.03);
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+}
+.edit-user .editEnd {
+  display: flex;
+  margin-left: 5%;
+}
+.edit-user .editEnd .success {
+  height: 3.125rem;
+  margin-left: 3rem;
+  transition: all 0.5s ease-in-out;
+}
+.edit-user .editEnd .button {
+  cursor: pointer;
+  height: 3.125rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  padding: 1rem;
+  transition: opacity 0.3s ease;
+}
+.edit-user .editEnd .button:hover {
+  opacity: 0.6;
+}
+
+/* Clase de utilidad */
+.flow * + * {
+  margin-top: var(--flow-spacer, 3em);
+}
+/*# sourceMappingURL=style.css.map */
