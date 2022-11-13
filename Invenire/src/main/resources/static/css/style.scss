@@ -1,7 +1,9 @@
-@import "static/css/config";
-@import "static/css/settings";
-@import "static/css/mixins";
-@import "static/css/components";
-@import "static/css/animations";
-@import "static/css/navbar";
-@import "static/css/home";
+@import "_config";
+@import "_mixins";
+@import "_settings";
+@import "_components";
+@import "_animations";
+@import "_navbar";
+@import "_home";
+@import "_register";
+@import "_help";

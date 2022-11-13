@@ -1,166 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
-<html xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
-    <title>Invenire</title>
-</head>
-<body class="home">
-    <header>
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">INVENIRE</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Tus cursos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Tienda</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link">Ayuda</a>
-                  </li>
-                  <form class="d-flex" role="search">
-                    <input class="" type="search" placeholder="Busca tu curso ideal" aria-label="Search">
-                    <div class="columnblack"></div>
-                    <button class="btn btn-outline-success" type="submit"><ion-icon name="search-outline"></ion-icon></button>
-                  </form>
-                  <li class="buyIcon">
-                    <ion-icon name="cart"></ion-icon>
-                  </li>
-                </ul>
-              </div>
+  <html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <html xmlns:th="https://www.thymeleaf.org">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="../static/css/style.css"
+          th:href="@{/css/style.css}"
+        />
+        <!--CSS-->
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="../static/css/style.css"
+          th:href="@{/css/style.css}"
+        />
+        <title>Invenire</title>
+      </head>
+      <body class="home">
+        <header th:insert = "components/nav.html :: header(idNav='noBgNav')">
+        </header>
+        <main class="homeMain">
+          <div class="text">
+            <h3>Bienvenido a <span class="marca">Invenire</span></h3>
+            <h3><span>Capacitate</span> con los mejores</h3>
+            <h3><span>expertos</span> del mercado</h3>
+          </div>
+          <div class="cards">
+            <div class="background">
+              <div class="violet"></div>
+              <div class="pink"></div>
             </div>
-            <div class="profile">
-              <div sec:authorize="!isAuthenticated()">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="atractive"><button><a th:href="@{/register}">Registrarse</a></button></li>
-                  <li><button><a th:href="@{/login}">Login</a></button></li>
-                </ul>
-              </div>
-              <div sec:authorize="isAuthenticated()">
-                <p>Bienvenido: <span sec:authentication="principal.username"></span></p>
-                <a th:href="@{/editUser}">Editar Perfil</a>
-                <a th:href="@{/logout}">Logout</a>
-              </div>
-            </div>
-          </nav>
-    </header>
-    <main class="homeMain">
-      <div class="text">
-        <h3>Bienvenido a <span class="marca">Invenire</span></h3>
-        <h3><span>Capacitate</span> con los mejores</h3>
-        <h3><span>expertos</span> del mercado</h3>
-      </div>
-      <div class="cards">
-        <div class="background">
-          <div class="violet"></div>
-          <div class="pink"></div>
-        </div>
-        <div class="cardsGallery">
-          <div class="card pabsolute">
-            <div class="headerCard">
-              <img src="https://images.pexels.com/photos/3184642/pexels-photo-3184642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-              <p>Augusto Henriquez</p>
-            </div>
-            <div class="infoCard">
-              <h2>Python</h2>
-              <div class="stars">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-              </div>
-              <div class="buy">
-                <p>$5.500 (ARS)</p>
-                <button class="button">Comprar</button>
-              </div>
+            <div class="cardsGallery">
+              <img
+                src="https://raw.githubusercontent.com/Puma-solutions/Grupo_10_Invenire/frontend/public/resources/1.png "
+                alt=""
+                class="f1"
+              />
+              <img
+                src="https://raw.githubusercontent.com/Puma-solutions/Grupo_10_Invenire/frontend/public/resources/2.png "
+                alt=""
+                class="f2"
+              />
+              <img
+                src="https://raw.githubusercontent.com/Puma-solutions/Grupo_10_Invenire/frontend/public/resources/1.png "
+                alt=""
+                class="f3"
+              />
+              <img
+                src="https://raw.githubusercontent.com/Puma-solutions/Grupo_10_Invenire/frontend/public/resources/2.png "
+                alt=""
+                class="f4"
+              />
             </div>
           </div>
-          <div class="card pabsolute">
-            <div class="headerCard">
-              <img src="https://images.pexels.com/photos/3772620/pexels-photo-3772620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-              <p>Augusto Henriquez</p>
-            </div>
-            <div class="infoCard">
-              <h2>Python</h2>
-              <div class="stars">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-              </div>
-              <div class="buy">
-                <p>$5.500 (ARS)</p>
-                <button class="button">Comprar</button>
-              </div>
-            </div>
-          </div>
-          <div class="card pabsolute">
-            <div class="headerCard">
-              <img src="https://images.pexels.com/photos/5212325/pexels-photo-5212325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-              <p>Luciana Bustos</p>
-            </div>
-            <div class="infoCard">
-              <h2>Digital Writting</h2>
-              <div class="stars">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-              </div>
-              <div class="buy">
-                <p>$5.500 (ARS)</p>
-                <button class="button">Comprar</button>
-              </div>
-            </div>
-          </div>
-          <div class="card pabsolute">
-            <div class="headerCard">
-              <img src="https://images.pexels.com/photos/3184642/pexels-photo-3184642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-              <p>Augusto Henriquez</p>
-            </div>
-            <div class="infoCard">
-              <h2>Python</h2>
-              <div class="stars">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-              </div>
-              <div class="buy">
-                <p>$5.500 (ARS)</p>
-                <button class="button">Comprar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer>
-
-    </footer>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="./js/navbar.js"></script>
-</body>
+        </main>
+        <footer></footer>
+        <script
+          type="module"
+          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+          nomodule
+          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+        ></script>
+      </body>
+    </html>
+  </html>
 </html>

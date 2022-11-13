@@ -4,6 +4,7 @@ import com.example.Invenire.services.UsuarioDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -46,9 +47,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/**/**.css",
                         "/styles/**",
                         "**.css",
-                        "/role**," ,
-                                "/role/**").permitAll()
-                .antMatchers("/editUser").access("hasRole('ROLE_USER')")
+                        "**.js",
+                        "/ayuda",
+                        "/cursos/**",
+                        "/cursos**").permitAll()
+                .antMatchers("/editUser","/carrito").access("hasRole('ROLE_USER')")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
