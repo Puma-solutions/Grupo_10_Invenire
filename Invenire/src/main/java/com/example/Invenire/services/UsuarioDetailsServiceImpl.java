@@ -1,8 +1,12 @@
 package com.example.Invenire.services;
 
+import com.example.Invenire.entities.dtos.UsuarioEditDTO;
 import com.example.Invenire.entities.dtos.UsuarioRegistroDTO;
+import com.example.Invenire.entities.entities.Direccion;
+import com.example.Invenire.entities.entities.Pais;
 import com.example.Invenire.entities.entities.Role;
 import com.example.Invenire.entities.entities.Usuario;
+import com.example.Invenire.repositories.DireccionRepository;
 import com.example.Invenire.repositories.UsuarioRepository;
 import org.hibernate.annotations.CollectionId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +30,12 @@ import java.util.stream.Collectors;
 
 @Service
 public class UsuarioDetailsServiceImpl implements UsuarioDetailsService {
+
     private UsuarioRepository usuarioRepositorio;
+    private DireccionRepository direccionRepository;
     @Autowired private RoleServiceImpl roleService;
+
+    private PaisServiceImpl paisServiceImpl;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -59,6 +67,42 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public Usuario editUser(UsuarioEditDTO editDTO, Usuario userNativo){
+        try{
+            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = formatter.parse(editDTO.getFechaNacimiento());
+
+            userNativo.setCelular(editDTO.getCelular());
+            userNativo.setEmail(editDTO.getEmail());
+            userNativo.setFechaNacimiento(date);
+
+            if(userNativo.getDireccion() != null){
+                userNativo.getDireccion().setPais(paisServiceImpl.obtenerPaisSesion(editDTO.getPais()));
+                userNativo.getDireccion().setCalle(editDTO.getCalle());
+                userNativo.getDireccion().setCiudad(editDTO.getCiudad());
+                userNativo.getDireccion().setLocalidad(editDTO.getLocalidad());
+                userNativo.getDireccion().setCodPostal(editDTO.getCodPostal());
+            }else{
+                Direccion direccion = Direccion.builder()
+                        .calle(editDTO.getCalle())
+                        .ciudad(editDTO.getCiudad())
+                        .localidad(editDTO.getLocalidad())
+                        .codPostal(editDTO.getCodPostal())
+                        .pais(paisServiceImpl.obtenerPaisSesion(editDTO.getPais()))
+                        .build();
+                userNativo.setDireccion(direccion);
+
+            }
+            return usuarioRepositorio.save(userNativo);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+
     }
 
     @Override
