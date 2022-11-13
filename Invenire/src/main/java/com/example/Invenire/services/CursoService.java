@@ -17,4 +17,6 @@ public interface CursoService extends BaseService<Curso,Long>{
     public List<CursoCardDTO> buscarCursosPorNombreYPorUsuario(String nombre, Usuario usuario);
 
     public Curso buscarCursoPorIdYUsuario(Long id, Usuario usuario);
+
+    public Page<Curso> buscarCursoPorUsuarioPaginado(int pageNo, int pageSize, String sortField, String sortDirection);
 }
