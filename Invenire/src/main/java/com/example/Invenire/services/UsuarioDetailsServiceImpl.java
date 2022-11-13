@@ -13,8 +13,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -54,5 +56,35 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService {
     private Collection<? extends GrantedAuthority> mapearAutoridadesRoles(List<Role> roles){
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getNombre())).collect(Collectors.toList());
     }
+
+
+
+    @Transactional
+    public Usuario findByEmail(String email) throws Exception {
+        try{
+            Optional<Usuario> entityOptional = Optional.ofNullable(usuarioRepositorio.findByEmail(email));
+            return entityOptional.get();
+
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+
+    @Transactional
+    public Usuario findByUsername(String username) throws Exception {
+        try{
+            Optional<Usuario> entityOptional = Optional.ofNullable(usuarioRepositorio.findByUsername(username));
+            return entityOptional.get();
+
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+
+
+
+
 
 }

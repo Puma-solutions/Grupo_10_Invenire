@@ -7,6 +7,9 @@ import com.example.Invenire.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.util.Optional;
+
 @Service
 public class UsuarioServiceImpl extends BaseServiceImpl<Usuario,Long> implements UsuarioService{
 
@@ -15,4 +18,9 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario,Long> implements
     public UsuarioServiceImpl(BaseRepository<Usuario, Long> baseRepository) {
         super(baseRepository);
     }
+
+
+
+
+
 }
