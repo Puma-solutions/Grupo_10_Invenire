@@ -6,46 +6,93 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap"
+          rel="stylesheet" />
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <title>Invenire</title>
 </head>
-<body>
-<h1>EDITAR USUARIO</h1>
-<div th:if="${param.exito}">
-    <p>Usuario editado exitosamente!</p>
-</div>
-<form th:action="@{/editUser}" method="post" th:object="${user}">
-    <div>
-        <h2 th:text="${user.username}" th:field="${user.username}">titulo</h2>
-    </div>
-    <div>
-        <label for="fechaNacimiento">Fecha Nacimiento:</label>
-        <input type="date" id="fechaNacimiento" th:value="${user.fechaNacimiento}" th:field="${user.fechaNacimiento}">
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="text" id="email" th:value="${user.email}" th:field="${user.email}">
-    </div>
-    <div>
-        <label for="celular">Celular:</label>
-        <input type="text" id="celular" th:value="${user.celular}" th:field="${user.celular}">
-    </div>
-    <div>
-        <h2>Direccion:</h2>
-        <label for="pais">Pais:</label>
-        <select name="pais" id="pais" th:object="${paises}" th:field="${user.pais}">
-            <option th:each="paisItem : ${paises}" th:value="${paisItem.nombre}" th:text="${paisItem.nombre}"></option>
-        </select>
-        <label for="localidad">Localidad:</label>
-        <input type="text" id="localidad" th:value="${user.localidad}" th:field="${user.localidad}">
-        <label for="ciudad">Ciudad:</label>
-        <input type="text" id="ciudad" th:value="${user.ciudad}" th:field="${user.ciudad}">
-        <label for="codPostal">Cod Postal:</label>
-        <input type="text" id="codPostal" th:value="${user.codPostal}" th:field="${user.codPostal}">
-        <label for="calle">Calle:</label>
-        <input type="text" id="calle" th:value="${user.calle}" th:field="${user.calle}">
-    </div>
+<body class="home">
+<header th:insert = "components/nav.html :: header(idNav='noBgNav')"></header>
+    <main class="edit-user">
+        <form th:action="@{/editUser}" method="post" th:object="${user}">
+            <div class="row">
+                <div class="col-1 flow" style="--flow-spacer: .8rem">
+                    <h1>EDITAR USUARIO</h1>
+                    <div class="inputFormLine">
+                        <label for="fechaNacimiento">Fecha Nacimiento:</label>
+                        <input type="date" id="fechaNacimiento" th:value="${user.fechaNacimiento}"
+                               th:field="${user.fechaNacimiento}">
+                    </div>
+                    <div class="inputFormLine">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" th:value="${user.email}" th:field="${user.email}">
+                    </div>
+                    <div class="inputFormLine">
+                        <label for="celular">Celular:</label>
+                        <input type="text" id="celular" th:value="${user.celular}" th:field="${user.celular}">
+                    </div>
 
-    <button type="submit">Guardar Cambios</button>
-</form>
+                </div>
+                <div class="col-2 flow" style="--flow-spacer: .8rem;">
+                    <h2>Dirección:</h2>
+                    <div class="inputFormLine">
+                        <label for="pais">Pais:</label>
+                        <select name="pais" id="pais" th:object="${paises}" th:field="${user.pais}">
+                            <option th:each="paisItem : ${paises}" th:value="${paisItem.nombre}"
+                                    th:text="${paisItem.nombre}">
+                            </option>
+                        </select><br>
+                    </div>
+                    <div class="inputFormLine">
+                        <label for="localidad">Localidad:</label>
+                        <input type="text" id="localidad" th:value="${user.localidad}" th:field="${user.localidad}">
+                    </div>
+                    <div class="inputFormLine">
+                        <label for="ciudad">Ciudad:</label>
+                        <input type="text" id="ciudad" th:value="${user.ciudad}" th:field="${user.ciudad}">
+                    </div>
+                    <div class="inputFormLine">
+                        <label for="codPostal">Cod Postal:</label>
+                        <input type="text" id="codPostal" th:value="${user.codPostal}" th:field="${user.codPostal}">
+                    </div>
+                    <div class="inputFormLine">
+                        <label for="calle">Calle:</label>
+                        <input type="text" id="calle" th:value="${user.calle}" th:field="${user.calle}">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="profile-card" id="profile-card">
+                        <div class="editProfile" id="editProfile">
+                            <ion-icon name="image-outline"></ion-icon>
+                            <p>Cambiar foto</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdGFncmFtJTIwcHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80" alt="Profile user" id="profile-pic">
+                        <h2 th:text="${user.username}" th:field="${user.username}">Franco Asis</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="editEnd">
+                <button class="button" type="submit">Guardar Cambios</button>
+                <div th:if="${param.exito}" class="success">
+                    <p>Usuario editado con exito!</p>
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        document.getElementById("profile-pic").addEventListener('mouseover', () => {
+            document.getElementById("editProfile").style.display = 'block';
+        })
+        document.getElementById("profile-pic").addEventListener('mouseleave', () => {
+            document.getElementById("editProfile").style.display = 'none';
+        })
+    </script>
 </body>
 </html>

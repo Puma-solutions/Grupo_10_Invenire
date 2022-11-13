@@ -1,0 +1,187 @@
+body {
+  background: radial-gradient(38.01% 51.94% at 58.56% 44.95%, #353535 0%, #1B1B1B 100%);
+  background-size: cover;
+}
+
+.edit-user {
+  width: 100%;
+  padding-bottom: 2rem;
+
+  .row {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 9rem;
+    padding-bottom: 1.5rem;
+    padding-inline: 2rem;
+    margin-inline: 5%;
+    gap: 3rem;
+
+    .col-1, .col-2 {
+      position: relative;
+      width: 100%;
+
+      h1 {
+        font-size: 2.5rem;
+        letter-spacing: .6rem;
+      }
+
+      h2{
+        line-height: 3rem;
+        font-size: 2rem;
+        letter-spacing: .3rem;
+      }
+
+      .inputFormLine {
+        width: 100%;
+
+        input,
+        select {
+          background-color: transparent;
+          border: 0.15rem solid map-get($colores-secundarios, violeta-oscuro);
+          padding: .9rem;
+          @include blanco;
+          border-radius: 0.5rem;
+          width: 60%;
+          transition: all 0.5s;
+        }
+
+        select{
+          option{
+            color: black;
+          }
+        }
+
+        label {
+          display: inline-block;
+          width: 30%;
+          background-color: transparent;
+          transform: translateY(1rem);
+          margin-right: 1rem;
+          padding-block: 0.5rem;
+          transition: all 0.5s;
+          border-radius: 1rem;
+          transform: translateY(-5%);
+        }
+
+        input:focus,
+        select:focus {
+          border: 0.15rem solid map-get($colores-secundarios, violeta-claro);
+          outline: none;
+          box-shadow: 0 0 20px map-get($colores-secundarios, violeta-claro);
+        }
+
+        input:hover,
+        select:hover {
+          border: 0.15rem solid map-get($colores-secundarios, violeta-claro);
+          outline: none;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          appearance: none;
+          margin: 0;
+        }
+      }
+    }
+
+    .col-1::after, .col-2::after{
+      content: '';
+      width: 10px;
+      height: 425px;
+      background: linear-gradient(map-get($colores-secundarios, violeta-claro), #fb5283);
+      position: absolute;
+      left: -40px;
+      top: 6px;
+    }
+
+  }
+
+  .col-3 {
+    align-self: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    min-width: 275px;
+    .profile-card {
+      padding-bottom: .5rem;
+      text-align: center;
+      width: fit-content;
+      background: linear-gradient(45deg, map-get($colores-secundarios, violeta-oscuro), #fb5283);
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      transition: box-shadow .4s ease-out,
+      transform .4s ease-out;
+      border-radius: 10px;
+      position: relative;
+
+      .editProfile {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: none;
+        z-index: -1;
+        ion-icon{
+          font-size: 3.5rem;
+          padding: .5rem;
+        }
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+        aspect-ratio: 1/1;
+        transition: opacity .4s ease-in-out;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        padding: 1rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+
+      img:hover {
+        cursor: pointer;
+        opacity: .5;
+      }
+    }
+
+    .profile-card:hover{
+      border: 1px solid white;
+      transform: scale(1.03);
+      box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    }
+  }
+
+  .editEnd{
+    display: flex;
+    margin-left: 5%;
+
+    .success{
+      height: 3.125rem;
+      margin-left: 3rem;
+      transition: all .5s ease-in-out;
+    }
+
+    .button {
+      cursor: pointer;
+      height: 3.125rem;
+      margin-top: 2rem;
+      margin-left: 1rem;
+      padding: 1rem;
+      transition: opacity .3s ease;
+    }
+
+    .button:hover {
+      opacity: .6;
+    }
+  }
+}
+
+/* Clase de utilidad */
+.flow *+* {
+  margin-top: var(--flow-spacer, 3em);
+}
