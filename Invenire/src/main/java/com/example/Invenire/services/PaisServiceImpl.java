@@ -20,9 +20,8 @@ public class PaisServiceImpl extends BaseServiceImpl<Pais,Long> implements PaisS
     }
 
     @Override
-    public Pais obtenerPaisSesion(String filtro) {
-
-        Pais pais = paisRepositorio.findByNombre(filtro);
+    public Pais findPaisByNombre(String filtro) {
+        Pais pais = paisRepositorio.findPaisByNombre(filtro);
         return pais;
     }
 }

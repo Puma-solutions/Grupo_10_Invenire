@@ -8,7 +8,6 @@ import com.example.Invenire.entities.entities.Role;
 import com.example.Invenire.entities.entities.Usuario;
 import com.example.Invenire.repositories.DireccionRepository;
 import com.example.Invenire.repositories.UsuarioRepository;
-import org.hibernate.annotations.CollectionId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -35,7 +34,7 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService {
     private DireccionRepository direccionRepository;
     @Autowired private RoleServiceImpl roleService;
 
-    private PaisServiceImpl paisServiceImpl;
+    @Autowired private PaisServiceImpl paisServiceImpl;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -80,7 +79,7 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService {
             userNativo.setFechaNacimiento(date);
 
             if(userNativo.getDireccion() != null){
-                userNativo.getDireccion().setPais(paisServiceImpl.obtenerPaisSesion(editDTO.getPais()));
+                userNativo.getDireccion().setPais(paisServiceImpl.findPaisByNombre(editDTO.getPais()));
                 userNativo.getDireccion().setCalle(editDTO.getCalle());
                 userNativo.getDireccion().setCiudad(editDTO.getCiudad());
                 userNativo.getDireccion().setLocalidad(editDTO.getLocalidad());
@@ -91,7 +90,7 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService {
                         .ciudad(editDTO.getCiudad())
                         .localidad(editDTO.getLocalidad())
                         .codPostal(editDTO.getCodPostal())
-                        .pais(paisServiceImpl.obtenerPaisSesion(editDTO.getPais()))
+                        .pais(paisServiceImpl.findPaisByNombre(editDTO.getPais()))
                         .build();
                 userNativo.setDireccion(direccion);
 
