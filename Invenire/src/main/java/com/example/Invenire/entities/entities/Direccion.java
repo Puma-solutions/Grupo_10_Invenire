@@ -1,9 +1,6 @@
 package com.example.Invenire.entities.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
@@ -15,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Audited
+@Builder
 public class Direccion extends Base{
     @Column(name="calle")
     private String calle;

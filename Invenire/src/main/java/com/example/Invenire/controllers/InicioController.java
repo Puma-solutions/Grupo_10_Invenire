@@ -25,7 +25,8 @@ public class InicioController {
 
     private UsuarioDetailsService servicio;
     @Autowired private PaisServiceImpl paisService;
-    public InicioController(UsuarioDetailsService servicio) {
+
+    public InicioController(UsuarioDetailsService servicio){
         this.servicio = servicio;
     }
 
@@ -89,7 +90,18 @@ public class InicioController {
     public String editUser(@ModelAttribute("user") UsuarioEditDTO usuarioDto, Model model){
         //REVISA ACA TODOS LOS CAMPOS QUE VIENEN DEL FRONT.
         System.out.printf(usuarioDto.toString());
-        return "redirect:/editUser?exito";
+
+        try{
+            Usuario userNativo = servicio.obtenerUsuarioSesion();
+            servicio.editUser(usuarioDto, userNativo);
+            System.out.printf(userNativo.toString());
+
+            return "redirect:/editUser?exito";
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return "views/index";  //Charly arreglate esto, nose a donde tendria q llevarte
+        }
+
     }
 
 
