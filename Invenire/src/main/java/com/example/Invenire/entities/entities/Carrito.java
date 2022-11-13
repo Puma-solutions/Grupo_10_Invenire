@@ -1,9 +1,6 @@
 package com.example.Invenire.entities.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
@@ -18,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Audited
+@Builder
 public class Carrito extends Base{
     @Column(name="fechaCreacion")
     private Date fechaCreacion;
@@ -29,7 +27,7 @@ public class Carrito extends Base{
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinTable(name="carrito_cursos",joinColumns=@JoinColumn(name="carrito_id"),
             inverseJoinColumns = @JoinColumn(name="curso_id"))
-    private List<Curso> cursos = new ArrayList<Curso>();
+    @Singular private List<Curso> cursos = new ArrayList<Curso>();
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="fk_cupon")
