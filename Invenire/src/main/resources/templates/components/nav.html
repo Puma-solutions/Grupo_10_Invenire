@@ -18,7 +18,7 @@
         <div class="columnblack"></div>
         <button><ion-icon name="search-outline"></ion-icon></button>
       </form>
-      <a href="" class="buyIcon"><ion-icon name="cart"></ion-icon></a>
+      <a href="" th:href="@{/carrito/}" class="buyIcon"><ion-icon name="cart"></ion-icon></a>
     </div>
     <div class="rightNavbar">
       <div class="noProfile" sec:authorize="!isAuthenticated()">

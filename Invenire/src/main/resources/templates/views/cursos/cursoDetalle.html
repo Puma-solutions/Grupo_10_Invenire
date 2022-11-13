@@ -50,7 +50,7 @@
             <p th:text="${curso.descripcion}"></p>
             <div class="buy" th:if="${curso.detalles == null}">
                 <p th:text="${curso.precio}">$5.500 (ARS)</p>
-                <button class="button">Comprar</button>
+                <button class="button"><a href="" th:href="@{/carrito/addCurso/{id}(id=${curso.id})}">Comprar</a></button>
             </div>
         </div>
     </div>
