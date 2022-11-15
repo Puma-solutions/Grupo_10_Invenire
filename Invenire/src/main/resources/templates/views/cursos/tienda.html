@@ -18,9 +18,32 @@
 <body>
 <header th:insert = "components/nav.html :: header(idNav='')"></header>
 <main class="" style="padding:150px;">
+    <form action="" method="get" th:object="${searchDTO}">
+        <label for="categoria">Categoria:</label>
+        <select name="categoria" id="categoria" th:object="${categorias}" th:field="${searchDTO.categoria}">
+            <option th:value="todas">Todas</option>
+            <option th:each="categoria : ${categorias}" th:value="${categoria.nombre}" th:text="${categoria.nombre}"></option>
+        </select>
+        <label for="orden">Orden:</label>
+        <select name="orden" id="orden" th:field="${searchDTO.ordenamiento}">
+            <option th:value="sinOrden">Sin orden</option>
+            <option th:value="precioAsc">Por precio ascendente</option>
+            <option th:value="precioDes">Por precio descedente</option>
+            <option th:value="fechaAsc">Por fecha ascendente</option>
+            <option th:value="fechaDes">Por fecha descedente</option>
+        </select>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <div th:if="${currentCategoria != null && currentCategoria != '' && currentCategoria != 'todas'}">
+        <div>
+            <span th:text="${currentCategoria}"></span>
+            <a th:href="@{'/cursos/tienda/' + ${currentPage}}">X</a>
+        </div>
+    </div>
 
     <div th:if="${#lists.size(listCursos) >= 1}" class="cards">
-        <h1>Mis cursos</h1>
+        <h1>Tienda</h1>
         <div class="cardsGallery" style="top: 0;display: flex;left:0;gap: 15px;justify-content: space-evenly;align-items: baseline;">
             <div th:each="curso : ${listCursos}" class="card">
                 <a th:href="@{/cursos/__${curso.id}__}" style="color:white;text-decoration:none;">
@@ -54,7 +77,7 @@
         </div>
     </div>
     <div th:if="${#lists.size(listCursos) == 0}">
-        <h1>Todavía no tienes cursos.</h1>
+        <h1>No hay cursos que coincidan con los criterios de busqueda.</h1>
     </div>
 
     <div th:if = "${totalPages > 1}">
@@ -64,17 +87,17 @@
             </div>
             <div class = "col-sm-1">
 					<span th:each="i: ${#numbers.sequence(1, totalPages)}">
-						<a th:if="${currentPage != i}" th:href="@{'/cursos/misCursos/' + ${i}}">[[${i}]]</a>
+						<a th:if="${currentPage != i}" th:href="@{'/cursos/tienda/' + ${i}}">[[${i}]]</a>
 						<span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
 					</span>
             </div>
             <div class = "col-sm-1">
-                <a th:if="${currentPage < totalPages}" th:href="@{'/cursos/misCursos/' + ${currentPage + 1}}">Siguiente</a>
+                <a th:if="${currentPage < totalPages}" th:href="@{'/cursos/tienda/' + ${currentPage + 1}}">Siguiente</a>
                 <span th:unless="${currentPage < totalPages}">Next</span>
             </div>
 
             <div class="col-sm-1">
-                <a th:if="${currentPage < totalPages}" th:href="@{'/cursos/misCursos/' + ${totalPages}}">Ultima</a>
+                <a th:if="${currentPage < totalPages}" th:href="@{'/cursos/tienda/' + ${totalPages}}">Ultima</a>
                 <span th:unless="${currentPage < totalPages}">Last</span>
             </div>
         </div>

@@ -34,7 +34,13 @@
                             <ion-icon name="star" th:if="${curso.cantEstrellasFaltantes >= 1}" th:each="i: ${#numbers.sequence(1, curso.cantEstrellasFaltantes)}"></ion-icon>
                         </div>
                         <div th:if="${!curso.comprado}" class="buy">
-                            <p th:text="${curso.precio}">$5.500 (ARS)</p>
+                            <div th:if="${curso.precio} == ${curso.precioDescontado}">
+                                <p th:text="${curso.precio}">$5.500 (ARS)</p>
+                            </div>
+                            <div th:if="${curso.precio} != ${curso.precioDescontado}">
+                                <del><p th:text="${curso.precio}">$5.500 (ARS)</p></del>
+                                <p th:text="${curso.precioDescontado}">$5.500 (ARS)</p>
+                            </div>
                             <button class="button">Comprar</button>
                         </div>
                         <div th:if="${curso.comprado}" class="buy">

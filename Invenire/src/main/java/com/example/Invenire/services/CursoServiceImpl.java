@@ -1,6 +1,8 @@
 package com.example.Invenire.services;
 
 import com.example.Invenire.entities.dtos.CursoCardDTO;
+import com.example.Invenire.entities.dtos.SearchDTO;
+import com.example.Invenire.entities.entities.Categoria;
 import com.example.Invenire.entities.entities.Curso;
 import com.example.Invenire.entities.entities.CursoUsuario;
 import com.example.Invenire.entities.entities.Usuario;
@@ -23,6 +25,8 @@ public class CursoServiceImpl extends BaseServiceImpl<Curso,Long> implements Cur
     @Autowired
     private CursoRepository cursoRepository;
     @Autowired private CursoUsuarioServiceImpl cursoUsuarioService;
+
+    @Autowired private CategoriaService categoriaService;
     public CursoServiceImpl(BaseRepository<Curso, Long> baseRepository) {
         super(baseRepository);
     }
@@ -86,11 +90,50 @@ public class CursoServiceImpl extends BaseServiceImpl<Curso,Long> implements Cur
     }
 
     @Override
-    public Page<Curso> buscarCursoPorUsuarioPaginado(int pageNo, int pageSize, String sortField, String sortDirection) {
-        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
-                Sort.by(sortField).descending();
-        Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
-        return this.cursoRepository.findAll(pageable);
+    public Page<Curso> buscarCursosTienda(SearchDTO searchDTO, int pageNo, int pageSize) {
+        Page<Curso> cursosPaged = null;
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        if(searchDTO.getCategoria() != null && searchDTO.getOrdenamiento() != null){
+            String sortField = "" , sortDirection = "";
+            switch (searchDTO.getOrdenamiento()){
+                case"precioAsc":
+                    sortField = "precio";
+                    sortDirection = "asc";
+                    break;
+                case"precioDes":
+                    sortField = "precio";
+                    sortDirection = "des";
+                    break;
+                case"fechaAsc":
+                    sortField = "fechaCreacion";
+                    sortDirection = "asc";
+                    break;
+                case"fechaDes":
+                    sortField = "fechaCreacion";
+                    sortDirection = "des";
+                    break;
+            }
+            if(searchDTO.getOrdenamiento() != "sinOrden" && sortField != "" && sortDirection != ""){
+                Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
+                        Sort.by(sortField).descending();
+                pageable = PageRequest.of(pageNo - 1, pageSize, sort);
+            }
+            if(searchDTO.getCategoria() != ""){
+                Categoria categoria = categoriaService.findCategoriaByNombre(searchDTO.getCategoria());
+                if(categoria != null){
+                    cursosPaged = cursoRepository.findCursoByCategoria(categoria,pageable);
+                }
+                else {
+                    cursosPaged = cursoRepository.findAll(pageable);
+                }
+            }
+        }
+        else{
+            cursosPaged = cursoRepository.findAll(pageable);
+        }
+
+        return cursosPaged;
     }
+
 
 }

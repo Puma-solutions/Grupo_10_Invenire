@@ -1,5 +1,6 @@
 package com.example.Invenire.repositories;
 
+import com.example.Invenire.entities.entities.Categoria;
 import com.example.Invenire.entities.entities.Curso;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,4 +25,6 @@ public interface CursoRepository extends BaseRepository<Curso,Long>{
     Page<Curso> search(@Param("filtro") String filtro, Pageable pageable);
 
     List<Curso> findByNombreContainsIgnoreCaseAndFechaBajaIsNull(String nombre);
+
+    Page<Curso> findCursoByCategoria(Categoria categoria,Pageable pageable);
 }
