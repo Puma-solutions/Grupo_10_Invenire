@@ -15,4 +15,9 @@ public class CategoriaServiceImpl extends BaseServiceImpl<Categoria,Long> implem
     public CategoriaServiceImpl(BaseRepository<Categoria, Long> baseRepository) {
         super(baseRepository);
     }
+
+    @Override
+    public Categoria findCategoriaByNombre(String nombre) {
+        return categoriaRepository.findCategoriaByNombre(nombre);
+    }
 }

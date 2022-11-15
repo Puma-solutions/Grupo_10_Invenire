@@ -1,6 +1,7 @@
 package com.example.Invenire.services;
 
 import com.example.Invenire.entities.dtos.CursoCardDTO;
+import com.example.Invenire.entities.dtos.SearchDTO;
 import com.example.Invenire.entities.entities.Curso;
 import com.example.Invenire.entities.entities.Usuario;
 import org.springframework.data.domain.Page;
@@ -17,4 +18,7 @@ public interface CursoService extends BaseService<Curso,Long>{
     public List<CursoCardDTO> buscarCursosPorNombreYPorUsuario(String nombre, Usuario usuario);
 
     public Curso buscarCursoPorIdYUsuario(Long id, Usuario usuario);
+
+    Page<Curso> buscarCursosTienda(SearchDTO searchDTO,int pageNo,int pageSize);
+
 }

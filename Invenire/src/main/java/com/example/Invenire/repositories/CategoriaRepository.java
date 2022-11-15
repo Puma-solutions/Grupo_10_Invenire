@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoriaRepository extends BaseRepository<Categoria,Long>{
+    public Categoria findCategoriaByNombre(String nombre);
 }
