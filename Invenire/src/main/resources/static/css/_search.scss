@@ -1,0 +1,12 @@
+.mainSearch{
+    width: 100vw;
+}
+
+.searchCard{
+    padding-top: 10rem;
+    width: 90vw;
+    margin: 0 auto;
+    @include flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,80 @@
+.table {
+  padding: 2rem 0rem;
+  th {
+    padding: 1rem 2rem;
+    a {
+      @include flex;
+      gap: 1rem;
+      @include negro;
+    }
+  }
+}
+
+.detallesPago {
+  @include flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  .subtotal {
+    font-size: 1.5rem;
+  }
+  .cuponAgregado {
+    font-size: 1.2rem;
+    width: 25rem;
+    height: 5rem;
+    @include flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    .cuponAgregadoInfo {
+      @include flex;
+      @include blanco;
+      width: 15rem;
+      gap: 1.5rem;
+      background-color: rgb(29, 29, 29);
+      border-radius: 1rem;
+      padding: 0.5rem;
+      a {
+        @include flex;
+        gap: 1rem;
+        @include blanco;
+        text-decoration: none;
+      }
+    }
+  }
+  .total {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  .cupon {
+    @include flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    .cuponInput {
+      border: 1px solid #4b0082;
+      width: auto;
+      border-radius: 1rem;
+      padding: 0 0 0 1rem;
+      @include flex;
+      justify-content: flex-start;
+      gap: 1rem;
+      label {
+        font-size: 1.2rem;
+      }
+      input {
+        border: none;
+      }
+      input:focus {
+        border: none;
+        outline: none;
+      }
+      .agregar {
+        background-color: #4b0082;
+        @include blanco;
+        border: none;
+        font-size: 1.2rem;
+        border-radius: 0.5rem 1rem 1rem 0.5rem;
+      }
+    }
+  }
+}

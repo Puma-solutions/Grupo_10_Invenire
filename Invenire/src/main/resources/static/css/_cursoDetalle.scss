@@ -1,0 +1,48 @@
+.mainCursoDetalle {
+  @include flex;
+  gap: 3rem;
+  flex-direction: column;
+  width: 100vw;
+  padding-top: 10rem;
+}
+
+.tarjeta {
+  @include flex;
+  gap: 2rem;
+  @include b-negro;
+  @include blanco;
+  padding: 0 3rem 0 0;
+  img {
+    width: 35rem;
+  }
+  .titulo {
+    h2 {
+      font-size: 3rem;
+    }
+    p {
+      width: 20rem;
+    }
+  }
+}
+
+.detalles {
+  @include flex;
+  flex-direction: column;
+  gap: 1rem;
+  .detalle {
+    width: 50rem;
+    a{
+        @include negro;
+        text-decoration: none;
+    }
+    border: 0.05rem solid black;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.5s;
+  }
+  .detalle:hover{
+    width: 55rem;
+    border: 0.05rem solid map-get($colores-secundarios , violeta-oscuro );
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.30);
+  }
+}

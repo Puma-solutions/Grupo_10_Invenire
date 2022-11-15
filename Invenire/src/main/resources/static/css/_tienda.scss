@@ -1,0 +1,49 @@
+.mainTienda {
+  padding: 10rem 5rem;
+}
+
+.tiendaCards {
+  @include flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.tags {
+  width: 60%;
+  @include flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  select {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+  }
+  select:focus {
+    border: 1px solid #4b0082;
+    color: #4b0082;
+    outline: none;
+  }
+}
+
+.tagConteiner {
+    margin: 1rem 0;
+  .tag {
+    max-width: 15rem;
+    @include flex;
+    gap: 0.5rem;
+    a {
+        @include flex;
+      ion-icon {
+        font-size: 1.5rem;
+        color: red;
+        text-decoration: none;
+      }
+    }
+    background-color: #4b0082;
+    @include blanco;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+}

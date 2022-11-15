@@ -14,37 +14,12 @@
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
     <title>Invenire</title>
-    <style>
-    img{width:500px; border-radius:10px}
-    .tarjeta{    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;}
-    .titulo{
-    text-align:center;}
-    .detalle{
-        padding: 10px;
-        width: 100%;
-        border-radius: 10px;
-        margin: 20px;
-        border: 1px solid black;
-    }
-    .detalles{
-     font-size: 30px;
-    text-align: center;}
-    .detalle a {
-    text-decoration:none;
-    color:black;
-    }
-    .numCap{font-weight:bold;}
-
-    </style>
 </head>
 <body>
 <header th:insert = "components/nav.html :: header(idNav='')"></header>
-<main class="" style="padding:150px">
+<main class="mainCursoDetalle">
     <div class="tarjeta">
-        <img th:src="${curso.urlFotoCurso}" width="100px"; alt="">
+        <img th:src="${curso.urlFotoCurso}"alt="">
         <div class="titulo">
             <h2 th:text="${curso.nombre}"></h2>
             <p th:text="${curso.descripcion}"></p>

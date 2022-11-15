@@ -17,10 +17,10 @@
 </head>
 <body>
 <header th:insert = "components/nav.html :: header(idNav='')"></header>
-<main class="" style="padding:150px;">
-    <form action="" method="get" th:object="${searchDTO}">
+<main class="mainTienda">
+    <form class="tags" action="" method="get" th:object="${searchDTO}">
         <label for="categoria">Categoria:</label>
-        <select name="categoria" id="categoria" th:object="${categorias}" th:field="${searchDTO.categoria}">
+        <select name="categoria" class="categoriaSelect" id="categoria" th:object="${categorias}" th:field="${searchDTO.categoria}">
             <option th:value="todas">Todas</option>
             <option th:each="categoria : ${categorias}" th:value="${categoria.nombre}" th:text="${categoria.nombre}"></option>
         </select>
@@ -32,19 +32,19 @@
             <option th:value="fechaAsc">Por fecha ascendente</option>
             <option th:value="fechaDes">Por fecha descedente</option>
         </select>
-        <button type="submit">Buscar</button>
+        <button type="submit" class="button">Buscar <ion-icon name="chevron-forward-circle-outline"></ion-icon></ion-icon></button>
     </form>
 
-    <div th:if="${currentCategoria != null && currentCategoria != '' && currentCategoria != 'todas'}">
-        <div>
+    <div th:if="${currentCategoria != null && currentCategoria != '' && currentCategoria != 'todas'}" class="tagConteiner">
+        <div class="tag">
             <span th:text="${currentCategoria}"></span>
-            <a th:href="@{'/cursos/tienda/' + ${currentPage}}">X</a>
+            <a th:href="@{'/cursos/tienda/' + ${currentPage}}"><ion-icon name="close-circle-outline"></ion-icon></a>
         </div>
     </div>
 
     <div th:if="${#lists.size(listCursos) >= 1}" class="cards">
         <h1>Tienda</h1>
-        <div class="cardsGallery" style="top: 0;display: flex;left:0;gap: 15px;justify-content: space-evenly;align-items: baseline;">
+        <div class="tiendaCards">
             <div th:each="curso : ${listCursos}" class="card">
                 <a th:href="@{/cursos/__${curso.id}__}" style="color:white;text-decoration:none;">
                     <div class="headerCard">
