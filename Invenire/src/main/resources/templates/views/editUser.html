@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <title>Invenire</title>
 </head>
-<body class="home">
+<body class="edit-user-body">
 <header th:insert = "components/nav.html :: header(idNav='noBgNav')"></header>
     <main class="edit-user">
         <form th:action="@{/editUser}" method="post" th:object="${user}">

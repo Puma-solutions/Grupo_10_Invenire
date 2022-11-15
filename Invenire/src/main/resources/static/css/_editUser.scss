@@ -1,6 +1,8 @@
-body {
+.edit-user-body {
   background: radial-gradient(38.01% 51.94% at 58.56% 44.95%, #353535 0%, #1B1B1B 100%);
   background-size: cover;
+  @include b-negro;
+  @include blanco;
 }
 
 .edit-user {
