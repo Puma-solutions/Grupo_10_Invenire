@@ -1,0 +1,1 @@
+let inputs = document.querySelectorAll(".inputFormLine")

@@ -1,0 +1,135 @@
+.navbar{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 6rem;
+    @include b-negro;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    ion-icon{
+        font-size: 2rem
+    }
+    a{
+        @include blanco;
+        text-decoration: none;
+        transition: all 0.5s;
+    }
+    .leftNavBar{
+        @include flex;
+        gap: 2rem;
+        .brand{
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .pages{
+            @include flex;
+            gap: 1rem;
+            li{
+                font-size: 1.5rem;
+                list-style: none;
+                a:hover{
+                    @include amarillo;
+                }
+            }
+        }
+        .searchBar{
+            @include b-blanco;
+            @include flex;
+            padding: 0.5rem 0.1rem;
+            border-radius: 0.5rem;
+            width: 20rem;
+            transition: all 0.5s;
+            input{
+                border: none;
+                width: 80%;
+                height: 2rem;
+            }
+            button{
+                border: none;
+                background-color: transparent;
+                transition: all 0.5s;
+                opacity: 15%;
+            }
+            .columnblack{
+                width: 0.1rem;
+                @include b-negro;
+            }
+            input:focus{
+                border: none;
+                outline: none;
+            }
+        }
+        .searchBar:focus, .searchBar:hover{
+            width: 30vw;
+            button{
+                opacity: 100%;
+            }
+        }
+        .buyIcon{
+            transform: rotate(+360deg);
+            transition: all 0.5;
+        }
+        .buyIcon:hover{
+            transform: rotate(0);
+            @include amarillo;
+            ion-icon{
+                font-size: 2.5rem;
+            }
+        }
+    }
+    .rightNavbar{
+        .noProfile{
+            @include flex;
+            gap: 1.5rem;
+            button{
+                border: 0.15rem solid white;
+                background-color: transparent;
+                padding: 0.5rem 1rem;
+                border-radius: 2.5rem;
+                font-size: 1.4rem;
+                min-width: 7rem;
+                transition: all 0.5s;
+            }
+            button:hover{
+                transform: translateY(-0.2rem);
+                border: 0.15rem solid #FFC300;
+                @include b-amarillo;
+                a{
+                    @include negro;
+                }
+            }
+            .atractive{
+                border: 0.15rem solid #FFC300;
+                a{
+                    @include amarillo
+                }
+            }
+        }
+        .profile{
+            @include flex;
+            @include blanco;
+            gap: 1rem;
+            a{
+                @include flex;
+                gap: 0.5rem;
+            }
+            img{
+                width: 2.5rem;
+                border-radius: 2rem;
+            }
+            a{
+                border: none;
+                background-color: transparent;
+                ion-icon{
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+#noBgNav{
+    background-color: transparent;
+}

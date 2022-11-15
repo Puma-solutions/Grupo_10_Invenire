@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <html xmlns:th="https://www.thymeleaf.org">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+      <!--CSS-->
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="../static/css/style.css"
+        th:href="@{/css/style.css}"
+      />
+      <title>Invenire</title>
+    </head>
+    <body class="home">
+      <header th:insert = "components/nav.html :: header">
+      </header>
+      <main class="register">
+        <div class="headlineRegister">
+          <h1>Login</h1>
+        </div>
+        <form
+          th:action="@{/login}"
+          method="post"
+          th:object="${user}"
+          class="formLoginRegister"
+        >
+          <div class="formLine">
+            <div class="inputFormLine">
+              <label for="username">Nombre de Usuario</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                th:field="*{username}"
+                required
+                />
+            </div>
+            <div class="inputFormLine">
+              <label for="password">Contraseña</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                th:field="*{password}"
+                required
+                />
+            </div>
+          </div>
+          <div class="formLine">
+            <div class="refLogin">
+              <button type="submit" class="button">Iniciar Sesion</button>
+              <p>
+                ¿Aún no tenes cuenta?
+                <a href="/register">Click aquí para registrarte.</a>
+              </p>
+            </div>
+          </div>
+        </form>
+        <div th:if="${param.error}" class="error">
+          <p>Usuario o contraseña incorrecta</p>
+          <ion-icon name="close-outline"></ion-icon>
+        </div>
+        <div th:if="${param.logout}" class="success">
+          <p>Ha cerrado sesión exitosamente</p>
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </div>
+      </main>
+      <script
+          type="module"
+          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+          nomodule
+          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+        ></script>
+    </body>
+  </html>
+</html>

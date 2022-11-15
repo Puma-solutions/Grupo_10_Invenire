@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>EDITAR USUARIO</h1>
+<div th:if="${param.exito}">
+    <p>Usuario editado exitosamente!</p>
+</div>
+<form th:action="@{/editUser}" method="post" th:object="${user}">
+    <div>
+        <h2 th:text="${user.username}" th:field="${user.username}">titulo</h2>
+    </div>
+    <div>
+        <label for="fechaNacimiento">Fecha Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" th:value="${user.fechaNacimiento}" th:field="${user.fechaNacimiento}">
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" th:value="${user.email}" th:field="${user.email}">
+    </div>
+    <div>
+        <label for="celular">Celular:</label>
+        <input type="text" id="celular" th:value="${user.celular}" th:field="${user.celular}">
+    </div>
+    <div>
+        <h2>Direccion:</h2>
+        <label for="pais">Pais:</label>
+        <select name="pais" id="pais" th:object="${paises}" th:field="${user.pais}">
+            <option th:each="paisItem : ${paises}" th:value="${paisItem.nombre}" th:text="${paisItem.nombre}"></option>
+        </select>
+        <label for="localidad">Localidad:</label>
+        <input type="text" id="localidad" th:value="${user.localidad}" th:field="${user.localidad}">
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" th:value="${user.ciudad}" th:field="${user.ciudad}">
+        <label for="codPostal">Cod Postal:</label>
+        <input type="text" id="codPostal" th:value="${user.codPostal}" th:field="${user.codPostal}">
+        <label for="calle">Calle:</label>
+        <input type="text" id="calle" th:value="${user.calle}" th:field="${user.calle}">
+    </div>
+
+    <button type="submit">Guardar Cambios</button>
+</form>
+</body>
+</html>

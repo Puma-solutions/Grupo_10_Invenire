@@ -1,0 +1,29 @@
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin amarillo {
+    color: map-get($colores-primarios, amarillo);
+}
+
+@mixin blanco {
+    color: map-get($colores-primarios, blanco);
+}
+
+@mixin negro {
+    color: map-get($colores-primarios, negro);
+}
+
+@mixin b-amarillo {
+    background-color: map-get($colores-primarios, amarillo);
+}
+
+@mixin b-blanco {
+    background-color: map-get($colores-primarios, blanco);
+}
+
+@mixin b-negro {
+    background-color: map-get($colores-primarios, negro);
+}

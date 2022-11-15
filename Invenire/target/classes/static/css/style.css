@@ -1,0 +1,539 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: #FFFFFF;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+/*cambio la barra de scroll*/
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(41, 41, 41, 0.158);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(85, 0, 102);
+  border-radius: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.button {
+  padding: 0.5rem;
+  background-color: #FFC300;
+  color: #000000;
+  border: none;
+  border-radius: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.card {
+  width: 25rem;
+  min-height: 20rem;
+  background-color: #000000;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.21);
+}
+.card .headerCard {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 65%;
+}
+.card .headerCard img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem 0 0 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card .headerCard p {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.315);
+  padding: 0.5rem;
+}
+.card .infoCard {
+  padding: 0.7rem;
+}
+.card .infoCard p {
+  font-size: 1.2rem;
+}
+.card .infoCard .buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@-webkit-keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-35px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-35px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+.navbar {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 6rem;
+  background-color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.navbar ion-icon {
+  font-size: 2rem;
+}
+.navbar a {
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.navbar .leftNavBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.navbar .leftNavBar .brand {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.navbar .leftNavBar .pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.navbar .leftNavBar .pages li {
+  font-size: 1.5rem;
+  list-style: none;
+}
+.navbar .leftNavBar .pages li a:hover {
+  color: #FFC300;
+}
+.navbar .leftNavBar .searchBar {
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.1rem;
+  border-radius: 0.5rem;
+  width: 20rem;
+  transition: all 0.5s;
+}
+.navbar .leftNavBar .searchBar input {
+  border: none;
+  width: 80%;
+  height: 2rem;
+}
+.navbar .leftNavBar .searchBar button {
+  border: none;
+  background-color: transparent;
+  transition: all 0.5s;
+  opacity: 15%;
+}
+.navbar .leftNavBar .searchBar .columnblack {
+  width: 0.1rem;
+  background-color: #000000;
+}
+.navbar .leftNavBar .searchBar input:focus {
+  border: none;
+  outline: none;
+}
+.navbar .leftNavBar .searchBar:focus, .navbar .leftNavBar .searchBar:hover {
+  width: 30vw;
+}
+.navbar .leftNavBar .searchBar:focus button, .navbar .leftNavBar .searchBar:hover button {
+  opacity: 100%;
+}
+.navbar .leftNavBar .buyIcon {
+  transform: rotate(360deg);
+  transition: all 0.5;
+}
+.navbar .leftNavBar .buyIcon:hover {
+  transform: rotate(0);
+  color: #FFC300;
+}
+.navbar .leftNavBar .buyIcon:hover ion-icon {
+  font-size: 2.5rem;
+}
+.navbar .rightNavbar .noProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.navbar .rightNavbar .noProfile button {
+  border: 0.15rem solid white;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 2.5rem;
+  font-size: 1.4rem;
+  min-width: 7rem;
+  transition: all 0.5s;
+}
+.navbar .rightNavbar .noProfile button:hover {
+  transform: translateY(-0.2rem);
+  border: 0.15rem solid #FFC300;
+  background-color: #FFC300;
+}
+.navbar .rightNavbar .noProfile button:hover a {
+  color: #000000;
+}
+.navbar .rightNavbar .noProfile .atractive {
+  border: 0.15rem solid #FFC300;
+}
+.navbar .rightNavbar .noProfile .atractive a {
+  color: #FFC300;
+}
+.navbar .rightNavbar .profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  gap: 1rem;
+}
+.navbar .rightNavbar .profile a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.navbar .rightNavbar .profile img {
+  width: 2.5rem;
+  border-radius: 2rem;
+}
+.navbar .rightNavbar .profile a {
+  border: none;
+  background-color: transparent;
+}
+.navbar .rightNavbar .profile a ion-icon {
+  color: red;
+}
+
+#noBgNav {
+  background-color: transparent;
+}
+
+.home {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.homeMain {
+  background: radial-gradient(38.01% 51.94% at 58.56% 44.95%, #353535 0%, #1B1B1B 100%);
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.homeMain .text h3 {
+  font-size: 2.8rem;
+  font-weight: 500;
+}
+.homeMain .text h3 span {
+  font-weight: 800;
+}
+.homeMain .cards .background {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  z-index: 0;
+  transform: translateY(1.5rem);
+}
+.homeMain .cards .background .violet {
+  background: linear-gradient(0deg, #9400D3 0%, #4B0082 100%);
+  width: 11vw;
+  max-width: 9.5rem;
+  height: 60vh;
+  border-radius: 10rem;
+  box-shadow: rgba(148, 0, 211, 0.2666666667) -0.5rem 0 3rem;
+}
+.homeMain .cards .background .pink {
+  background: linear-gradient(90deg, #C84E89 0%, #F15F79 100%);
+  width: 13vw;
+  max-width: 11rem;
+  height: 75vh;
+  border-radius: 10rem;
+  box-shadow: rgba(200, 78, 137, 0.2862745098) -0.5rem 0 3rem;
+}
+.homeMain .cards .cardsGallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 25%;
+  left: 80%;
+}
+.homeMain .cards .cardsGallery img {
+  position: relative;
+  width: 30vw;
+  margin-left: -25vw;
+  filter: drop-shadow(-15px 10px 10px rgba(0, 0, 0, 0.6235294118));
+  -webkit-animation: float 10s ease-in-out infinite;
+          animation: float 10s ease-in-out infinite;
+}
+.homeMain .cards .cardsGallery .f1 {
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+.homeMain .cards .cardsGallery .f2 {
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+.homeMain .cards .cardsGallery .f3 {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+.homeMain .cards .cardsGallery .f4 {
+  -webkit-animation-delay: 4.5s;
+          animation-delay: 4.5s;
+}
+
+.register {
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding: 6.5rem 0 4rem 0;
+}
+.register .headlineRegister h1 {
+  padding: 0.5rem 1.5rem 1rem 1.5rem;
+  border-radius: 1.5rem;
+  transform: translateY(1rem);
+  background-color: rgb(17, 17, 17);
+}
+.register .formLoginRegister {
+  width: 40rem;
+  background-color: rgb(17, 17, 17);
+  color: #FFFFFF;
+  padding: 0.5rem 5rem 2rem 5rem;
+  border-radius: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.register .formLoginRegister .formLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-direction: column;
+  width: 100%;
+}
+.register .formLoginRegister .inputFormLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+.register .formLoginRegister .inputFormLine input {
+  background-color: transparent;
+  border: 0.15rem solid #4B0082;
+  padding: 1rem;
+  color: #FFFFFF;
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: all 0.5s;
+}
+.register .formLoginRegister .inputFormLine label {
+  margin-left: 1rem;
+  background-color: rgb(17, 17, 17);
+  transform: translateY(1rem);
+  padding: 0.5rem 1rem;
+  transition: all 0.5s;
+  border-radius: 1rem;
+}
+.register .formLoginRegister .inputFormLine input:focus {
+  border: 0.15rem solid #9400D3;
+  outline: none;
+  box-shadow: 0 0 20px #9400D3;
+}
+.register .formLoginRegister .inputFormLine input:hover {
+  border: 0.15rem solid #9400D3;
+  outline: none;
+}
+.register .formLoginRegister .inputFormLine input::-webkit-outer-spin-button,
+.register .formLoginRegister .inputFormLine input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+.register .formLoginRegister .refLogin {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.register .formLoginRegister .refLogin a {
+  color: #FFC300;
+}
+.register .formLoginRegister .refLogin button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  width: 22rem;
+}
+.register .formLoginRegister .refLogin button ion-icon {
+  font-size: 2rem;
+}
+
+.success {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 0.15rem solid green;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+.success ion-icon {
+  font-size: 2rem;
+  transform: rotate(360deg);
+  transition: all 0.5s;
+}
+
+.success::before ion-icon {
+  transform: rotate(0);
+}
+
+.error {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 0.15rem solid red;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+.error ion-icon {
+  font-size: 2rem;
+  transform: rotate(360deg);
+  transition: all 0.5s;
+}
+
+.help {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 10rem 5rem;
+  color: #000000;
+  gap: 5rem;
+}
+.help .questions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: column;
+}
+.help .questions .question {
+  border: 0.05rem solid black;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  max-height: 4rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 1s;
+}
+.help .questions .question .headlineQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.help .questions .question .headlineQuestion h3 {
+  transition: all 0.5s;
+}
+.help .questions .question .headlineQuestion ion-icon {
+  font-size: 2rem;
+  transition: all 0.5s;
+}
+.help .questions .question:hover {
+  max-height: 20rem;
+  border: 0.05rem solid #4B0082;
+}
+.help .questions .question:hover .headlineQuestion h3 {
+  color: #4B0082;
+}
+.help .questions .question:hover .headlineQuestion ion-icon {
+  transform: rotate(180deg);
+  color: #4B0082;
+}/*# sourceMappingURL=style.css.map */

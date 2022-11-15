@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <title>Invenire</title>
+    <style>
+    img{width:500px; border-radius:10px}
+    .tarjeta{    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;}
+    .titulo{
+    text-align:center;}
+    .detalle{
+        padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+        margin: 20px;
+        border: 1px solid black;
+    }
+    .detalles{
+     font-size: 30px;
+    text-align: center;}
+    .detalle a {
+    text-decoration:none;
+    color:black;
+    }
+    .numCap{font-weight:bold;}
+
+    </style>
+</head>
+<body>
+<header th:insert = "components/nav.html :: header(idNav='')"></header>
+<main class="" style="padding:150px">
+    <div class="tarjeta">
+        <img th:src="${curso.urlFotoCurso}" width="100px"; alt="">
+        <div class="titulo">
+            <h2 th:text="${curso.nombre}"></h2>
+            <p th:text="${curso.descripcion}"></p>
+            <div class="buy" th:if="${curso.detalles == null}">
+                <p th:text="${curso.precio}">$5.500 (ARS)</p>
+                <button class="button">Comprar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="detalles" th:if="${curso.detalles != null}">
+        <div th:each="detalle : ${curso.detalles}" class="detalle">
+            <a th:href="${detalle.getLinkVideo()}" target="_blank">
+                <span th:text="${detalle.numCap}" class="numCap"></span>
+                <span> - </span>
+                <span th:text="${detalle.nombre}" class="nombre"></span>
+            </a>
+<!--            <form th:action="@{/cursos/visto/{idCurso}/{idDetalle}/(idCurso=${curso.id},idDetalle=${detalle.id})}" method="post" th:object="${visto}">
+                <input type="checkbox" name="" id="" class="check_visto" onChange="this.form.submit()" th:field="${visto.visto}" th:value="${visto.visto}">
+            </form>-->
+
+        </div>
+    </div>
+</main>
+<footer>
+
+</footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="./js/navbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Invenire</title>
+</head>
+<body>
+<h1>HOLA SOY EL INDEX</h1>
+<div sec:authorize="!isAuthenticated()">
+    <a href="/login">LOGIN</a>
+    <a href="/register">REGISTRARSE</a>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <p>Bienvenido: <span sec:authentication="principal.username"></span></p>
+    <a th:href="@{/logout}">Logout</a>
+</div>
+</body>
+</html>
