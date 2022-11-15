@@ -50,7 +50,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "**.js",
                         "/ayuda",
                         "/cursos/**",
-                        "/cursos**").permitAll()
+                        "/cursos**",
+                        "/api/**").permitAll()
                 .antMatchers("/editUser","/carrito").access("hasRole('ROLE_USER')")
                 .anyRequest().authenticated()
                 .and()
