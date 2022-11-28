@@ -70,3 +70,4 @@ Somos estudiantes de 3er Año de Ingeniería en Sistemas de Información en la U
 - [Ciro Tello](https://github.com/CiroTello)
 
 Proyecto: [https://github.com/Tomas-Izuel/Grupo_10_Invenire](https://github.com/Tomas-Izuel/Grupo_10_Invenire)
+Video YT: [https://youtu.be/3r0C_tq6SHs](https://youtu.be/3r0C_tq6SHs)
